@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #5c8edb, #57d0a4);
+}
+
+.login-card {
+  width: 520px;
+  text-align: center;
+  color: white;
+}
+
+.logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 30px;
+  background: white;
+  padding: 10px;
+}
+
+.login-card h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.warning {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.user-type {
+  color: orange;
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.login-form {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 22px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 14px 10px;
+  color: white;
+  font-size: 16px;
+}
+
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.input-group input:focus {
+  outline: none;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 15px;
+}
+
+.checkbox-group a {
+  color: white;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background: white;
+  color: #32b28d;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  font-weight: 300;
+}
+
+.login-btn:hover {
+  opacity: 0.9;
+}
