@@ -4,8 +4,10 @@
 /* import Inc_dec from "./Components/Day_2/Exercise/Inc_dec"; */
 /* import Routing from "./Components/Day_3/Routing"; */
 /* import Routings from "./Components/Day_4/Routings"; */
-import Routing2 from "./Components/Day_5/Basic_Login/Routing2";
 
+import Forms from "./Components/Day_5/Basic_Form/Forms";
+
+/* import Routing2 from "./Components/Day_5/Basic_Login/Routing2"; */
 
 
 function App() {
@@ -17,7 +19,8 @@ function App() {
     {/* <Inc_dec/> */}{/* Day2 */}
     {/* <Routing/> */}{/* Day3 */}
     {/* <Routings/> */} {/* Day4 */}
-    <Routing2/> {/* Day5 */}
+    {/* <Routing2/> */} {/* Day5 */}
+    <Forms/>
 
     </>
    
