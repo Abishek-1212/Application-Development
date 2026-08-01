@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – My Visits</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>Participant Portal</span></div>
+  <nav>
+    <a href="dashboard-participant.html"><i class="fa-solid fa-house"></i><span>My Dashboard</span></a>
+    <a href="participant-visits.html" class="active"><i class="fa-solid fa-calendar-check"></i><span>My Visits</span></a>
+    <a href="participant-health.html"><i class="fa-solid fa-file-medical"></i><span>My Health Data</span></a>
+    <a href="participant-documents.html"><i class="fa-solid fa-folder-open"></i><span>My Documents</span></a>
+    <a href="#"><i class="fa-solid fa-circle-question"></i><span>Help &amp; FAQ</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> Subject: SUB-001<br>
+    <span style="font-size:0.72rem;opacity:0.6;">Study Participant</span><br>
+    <a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1><i class="fa-solid fa-calendar-check" style="color:#2980b9;"></i> &nbsp;My Visits</h1>
+    <div class="topbar-right">
+      <span style="font-size:0.82rem;color:#7f8c8d;">Subject: SUB-001</span>
+      <div class="avatar" style="background:#27ae60;">S1</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="alert alert-success">
+      <i class="fa-solid fa-circle-check"></i>
+      <span>Your next visit <strong>V4 – End of Study</strong> is on <strong>Jul 20, 2025</strong> at City General Hospital · 10:00 AM</span>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><h3><i class="fa-solid fa-calendar-check" style="color:#2980b9;"></i> &nbsp;Visit Schedule</h3></div>
+      <table>
+        <thead>
+          <tr><th>Visit</th><th>Date</th><th>Location</th><th>Time</th><th>Status</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>V0 – Screening</strong></td>
+            <td>Jan 15, 2025</td>
+            <td>City General Hospital</td>
+            <td>09:00 AM</td>
+            <td><span class="badge badge-active">✓ Completed</span></td>
+            <td>Eligibility confirmed</td>
+          </tr>
+          <tr>
+            <td><strong>V1 – Baseline</strong></td>
+            <td>Jan 20, 2025</td>
+            <td>City General Hospital</td>
+            <td>10:00 AM</td>
+            <td><span class="badge badge-active">✓ Completed</span></td>
+            <td>Consent signed, drug dispensed</td>
+          </tr>
+          <tr>
+            <td><strong>V2 – Week 4</strong></td>
+            <td>Feb 17, 2025</td>
+            <td>City General Hospital</td>
+            <td>10:30 AM</td>
+            <td><span class="badge badge-active">✓ Completed</span></td>
+            <td>Vitals stable</td>
+          </tr>
+          <tr>
+            <td><strong>V3 – Week 12</strong></td>
+            <td>Apr 14, 2025</td>
+            <td>City General Hospital</td>
+            <td>11:00 AM</td>
+            <td><span class="badge badge-active">✓ Completed</span></td>
+            <td>Lab results normal</td>
+          </tr>
+          <tr style="background:#fffbf0;">
+            <td><strong>V4 – End of Study</strong></td>
+            <td><strong style="color:#f39c12;">Jul 20, 2025</strong></td>
+            <td>City General Hospital</td>
+            <td>10:00 AM</td>
+            <td><span class="badge badge-setup">⏰ Upcoming</span></td>
+            <td>Final assessment</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><h3><i class="fa-solid fa-circle-info" style="color:#f39c12;"></i> &nbsp;Upcoming Visit Details</h3></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div>
+          <p style="font-size:0.85rem;color:#7f8c8d;margin-bottom:6px;">What to bring</p>
+          <ul style="font-size:0.875rem;line-height:1.9;padding-left:18px;">
+            <li>Photo ID</li>
+            <li>Study medication (unused tablets)</li>
+            <li>Diary card / symptom log</li>
+            <li>List of any new medications</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-size:0.85rem;color:#7f8c8d;margin-bottom:6px;">Instructions</p>
+          <ul style="font-size:0.875rem;line-height:1.9;padding-left:18px;">
+            <li>Fast for 4 hours before visit</li>
+            <li>Take morning dose as usual</li>
+            <li>Arrive 10 minutes early</li>
+            <li>Call if you need to reschedule</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – Login</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root { --primary:#1a5276; --primary-light:#2980b9; --accent:#27ae60; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:'Segoe UI',sans-serif;
+    min-height:100vh;
+    background:linear-gradient(135deg,#1a5276 0%,#2980b9 60%,#27ae60 100%);
+    display:flex; align-items:center; justify-content:center; padding:20px;
+  }
+  .login-card {
+    background:#fff; border-radius:16px; padding:44px 40px;
+    width:100%; max-width:440px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.2);
+  }
+  .login-logo { text-align:center; margin-bottom:28px; }
+  .login-logo .icon {
+    width:64px; height:64px; background:var(--primary); border-radius:16px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.6rem; color:#fff; margin:0 auto 12px;
+  }
+  .login-logo h2 { font-size:1.3rem; font-weight:700; color:var(--primary); }
+  .login-logo p { font-size:0.82rem; color:#7f8c8d; margin-top:4px; }
+
+  .form-group { margin-bottom:18px; }
+  .form-group label { display:block; font-size:0.82rem; font-weight:600; margin-bottom:7px; color:#2c3e50; }
+  .input-wrap { position:relative; }
+  .input-wrap i { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#bdc3c7; font-size:0.9rem; }
+  .form-control {
+    width:100%; padding:10px 12px 10px 36px;
+    border:1.5px solid #dce1e7; border-radius:8px;
+    font-size:0.875rem; transition:border-color 0.2s;
+  }
+  .form-control:focus { outline:none; border-color:var(--primary-light); }
+  select.form-control { padding-left:36px; }
+
+  .forgot { text-align:right; margin-top:-10px; margin-bottom:18px; }
+  .forgot a { font-size:0.8rem; color:var(--primary-light); }
+
+  .btn-login {
+    width:100%; padding:12px; background:var(--primary); color:#fff;
+    border:none; border-radius:8px; font-size:0.95rem; font-weight:600;
+    cursor:pointer; transition:background 0.2s;
+  }
+  .btn-login:hover { background:var(--primary-light); }
+
+  .divider { text-align:center; margin:20px 0; color:#bdc3c7; font-size:0.82rem; position:relative; }
+  .divider::before, .divider::after {
+    content:''; position:absolute; top:50%; width:42%; height:1px; background:#dce1e7;
+  }
+  .divider::before { left:0; } .divider::after { right:0; }
+
+  .btn-participant {
+    width:100%; padding:11px; background:#eafaf1; color:var(--accent);
+    border:1.5px solid #a9dfbf; border-radius:8px; font-size:0.9rem;
+    font-weight:600; cursor:pointer; transition:background 0.2s;
+  }
+  .btn-participant:hover { background:#d5f5e3; }
+
+  .back-link { text-align:center; margin-top:20px; font-size:0.82rem; color:#7f8c8d; }
+  .back-link a { color:var(--primary-light); }
+
+  .role-info {
+    background:#f0f4f8; border-radius:8px; padding:12px 16px;
+    margin-bottom:18px; font-size:0.8rem; color:#5d6d7e;
+  }
+  .role-info strong { color:var(--primary); }
+</style>
+</head>
+<body>
+
+<div class="login-card">
+  <div class="login-logo">
+    <div class="icon"><i class="fa-solid fa-flask-vial"></i></div>
+    <h2>CTMS Portal</h2>
+    <p>Clinical Trial Management System</p>
+  </div>
+
+  <div class="role-info">
+    <strong>Demo credentials:</strong> Any email &amp; password — select a role and click Login
+  </div>
+
+  <form onsubmit="handleLogin(event)">
+    <div class="form-group">
+      <label>Email Address</label>
+      <div class="input-wrap">
+        <i class="fa-solid fa-envelope"></i>
+        <input type="email" class="form-control" placeholder="you@hospital.org" value="admin@ctms.org">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <div class="input-wrap">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" class="form-control" placeholder="••••••••" value="password">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Role</label>
+      <div class="input-wrap">
+        <i class="fa-solid fa-user-tag"></i>
+        <select class="form-control" id="roleSelect">
+          <option value="admin">Admin</option>
+          <option value="sponsor">Sponsor</option>
+          <option value="pi">Principal Investigator</option>
+          <option value="coordinator">Site Coordinator</option>
+          <option value="datamanager">Data Manager</option>
+          <option value="participant">Participant</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="forgot"><a href="#">Forgot Password?</a></div>
+
+    <button type="submit" class="btn-login"><i class="fa-solid fa-right-to-bracket"></i> &nbsp;Login</button>
+  </form>
+
+  <div class="divider">or</div>
+  <button class="btn-participant" onclick="window.location='dashboard.html'">
+    <i class="fa-solid fa-person"></i> &nbsp;Participant Portal
+  </button>
+
+  <div class="back-link"><a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a></div>
+</div>
+
+<script>
+function handleLogin(e) {
+  e.preventDefault();
+  const role = document.getElementById('roleSelect').value;
+  const routes = {
+    admin:       'dashboard-admin.html',
+    sponsor:     'dashboard-sponsor.html',
+    pi:          'dashboard-pi.html',
+    coordinator: 'dashboard-coordinator.html',
+    datamanager: 'dashboard-datamanager.html',
+    participant: 'dashboard-participant.html'
+  };
+  localStorage.setItem('ctms_role', role);
+  window.location.href = routes[role] || 'dashboard-admin.html';
+}
+</script>
+</body>
+</html>

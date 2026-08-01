@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – Principal Investigator Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>PI Portal</span></div>
+  <nav>
+    <a href="dashboard-pi.html" class="active"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+    <a href="studies.html"><i class="fa-solid fa-clipboard-list"></i><span>My Studies</span></a>
+    <a href="participants.html"><i class="fa-solid fa-users"></i><span>Participants</span></a>
+    <a href="ecrf.html"><i class="fa-solid fa-file-medical"></i><span>eCRF Review</span></a>
+    <a href="adverse-events.html"><i class="fa-solid fa-triangle-exclamation"></i><span>Adverse Events</span></a>
+    <a href="documents.html"><i class="fa-solid fa-folder-open"></i><span>Documents</span></a>
+    <a href="reports.html"><i class="fa-solid fa-chart-bar"></i><span>Reports</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> Dr. Sarah Johnson<br>
+    <span style="font-size:0.72rem;opacity:0.6;">Principal Investigator</span><br>
+    <a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1><i class="fa-solid fa-user-doctor" style="color:#2980b9;"></i> &nbsp;Principal Investigator Dashboard</h1>
+    <div class="topbar-right">
+      <span style="font-size:0.82rem;color:#7f8c8d;">Dr. Sarah Johnson · SITE-01</span>
+      <div style="position:relative;cursor:pointer;">
+        <i class="fa-solid fa-bell" style="font-size:1.1rem;color:#7f8c8d;"></i>
+        <div class="badge-alert" style="position:absolute;top:-6px;right:-6px;">3</div>
+      </div>
+      <div class="avatar" style="background:#27ae60;">SJ</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="alert alert-danger">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <span><strong>SAE reported for SUB-019</strong> — Requires your review and sign-off within 24 hours. <a href="adverse-events.html" style="color:#922b21;font-weight:600;">Review Now</a></span>
+    </div>
+
+    <div class="stat-grid">
+      <a href="studies.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon blue"><i class="fa-solid fa-flask"></i></div>
+        <div><div class="stat-val">3</div><div class="stat-label">My Studies</div></div>
+      </a>
+      <a href="participants.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon green"><i class="fa-solid fa-users"></i></div>
+        <div><div class="stat-val">85</div><div class="stat-label">My Participants</div></div>
+      </a>
+      <a href="ecrf.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon orange"><i class="fa-solid fa-file-medical"></i></div>
+        <div><div class="stat-val">6</div><div class="stat-label">eCRFs Pending Review</div></div>
+      </a>
+      <a href="adverse-events.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <div><div class="stat-val">1</div><div class="stat-label">SAE Pending Sign-off</div></div>
+      </a>
+      <a href="participant-details.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon purple"><i class="fa-solid fa-calendar-check"></i></div>
+        <div><div class="stat-val">4</div><div class="stat-label">Visits Today</div></div>
+      </a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
+
+      <!-- TODAY'S VISITS -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-calendar-day" style="color:#2980b9;"></i> &nbsp;Today's Visits</h3>
+          <span style="font-size:0.8rem;color:#7f8c8d;">Jul 14, 2025</span>
+        </div>
+        <table>
+          <thead><tr><th>Subject</th><th>Visit</th><th>Time</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td><strong>SUB-001</strong></td><td>V4 – EOS</td><td>10:00 AM</td><td><span class="badge badge-active">Completed</span></td><td><a href="ecrf.html" class="btn btn-outline btn-sm">eCRF</a></td></tr>
+            <tr><td><strong>SUB-012</strong></td><td>V3 – Wk 12</td><td>11:30 AM</td><td><span class="badge badge-active">Completed</span></td><td><a href="ecrf.html" class="btn btn-outline btn-sm">eCRF</a></td></tr>
+            <tr><td><strong>SUB-023</strong></td><td>V2 – Wk 4</td><td>2:00 PM</td><td><span class="badge badge-setup">Upcoming</span></td><td><a href="ecrf.html" class="btn btn-primary btn-sm">Open</a></td></tr>
+            <tr><td><strong>SUB-031</strong></td><td>V1 – Baseline</td><td>4:00 PM</td><td><span class="badge badge-setup">Upcoming</span></td><td><a href="ecrf.html" class="btn btn-primary btn-sm">Open</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ECRF PENDING REVIEW -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-file-medical" style="color:#f39c12;"></i> &nbsp;eCRFs Pending Review</h3>
+          <a href="ecrf.html" style="font-size:0.8rem;color:#2980b9;">View All</a>
+        </div>
+        <table>
+          <thead><tr><th>Subject</th><th>Form</th><th>Submitted</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>SUB-005</td><td>Follow-up V3</td><td>Jul 13</td><td><a href="ecrf.html" class="btn btn-warning btn-sm">Review</a></td></tr>
+            <tr><td>SUB-008</td><td>Baseline V1</td><td>Jul 12</td><td><a href="ecrf.html" class="btn btn-warning btn-sm">Review</a></td></tr>
+            <tr><td>SUB-015</td><td>Screening V0</td><td>Jul 11</td><td><a href="ecrf.html" class="btn btn-warning btn-sm">Review</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- MY PARTICIPANTS -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-users" style="color:#27ae60;"></i> &nbsp;My Participants</h3>
+          <a href="participants.html" style="font-size:0.8rem;color:#2980b9;">View All</a>
+        </div>
+        <table>
+          <thead><tr><th>Subject</th><th>Study</th><th>Progress</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr style="cursor:pointer;" onclick="location.href='participant-details.html'"><td>SUB-001</td><td>CT-2025-001</td><td><div class="progress" style="width:70px;"><div class="progress-bar" style="width:80%;"></div></div></td><td><span class="badge badge-enrolled">Enrolled</span></td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='participant-details.html'"><td>SUB-002</td><td>CT-2025-001</td><td><div class="progress" style="width:70px;"><div class="progress-bar" style="width:60%;"></div></div></td><td><span class="badge badge-enrolled">Enrolled</span></td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='participant-details.html'"><td>SUB-003</td><td>CT-2025-002</td><td><div class="progress" style="width:70px;"><div class="progress-bar" style="width:40%;background:#f39c12;"></div></div></td><td><span class="badge badge-enrolled">Enrolled</span></td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='participant-details.html'"><td>SUB-019</td><td>CT-2025-001</td><td><div class="progress" style="width:70px;"><div class="progress-bar" style="width:60%;"></div></div></td><td><span class="badge badge-severe" style="background:#fdedec;color:#e74c3c;">SAE</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RECENT ACTIVITY -->
+      <div class="card">
+        <div class="card-header"><h3><i class="fa-solid fa-clock-rotate-left" style="color:#8e44ad;"></i> &nbsp;Recent Activity</h3></div>
+        <ul class="timeline">
+          <li style="cursor:pointer;" onclick="location.href='adverse-events.html'">
+            <div class="tl-dot red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <div class="tl-text"><p>SAE reported – SUB-019</p><span>4 hours ago · Needs sign-off</span></div>
+          </li>
+          <li style="cursor:pointer;" onclick="location.href='ecrf.html'">
+            <div class="tl-dot blue"><i class="fa-solid fa-file-medical"></i></div>
+            <div class="tl-text"><p>eCRF submitted – SUB-001 V4</p><span>Today 10:15 AM</span></div>
+          </li>
+          <li style="cursor:pointer;" onclick="location.href='participant-details.html'">
+            <div class="tl-dot green"><i class="fa-solid fa-user-plus"></i></div>
+            <div class="tl-text"><p>SUB-031 enrolled</p><span>Yesterday</span></div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

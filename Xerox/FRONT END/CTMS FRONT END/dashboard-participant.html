@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – Participant Portal</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .health-card {
+    background:#fff; border-radius:10px; padding:20px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    text-align:center;
+  }
+  .health-card .val { font-size:1.8rem; font-weight:700; margin:8px 0 4px; }
+  .health-card .lbl { font-size:0.78rem; color:#7f8c8d; }
+  .health-card .unit { font-size:0.75rem; color:#bdc3c7; }
+  .info-row { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #f0f4f8; font-size:0.875rem; }
+  .info-row:last-child { border-bottom:none; }
+  .info-row span:first-child { color:#7f8c8d; }
+  .info-row span:last-child { font-weight:500; }
+</style>
+</head>
+<body>
+
+<!-- Participant has a simpler sidebar -->
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>Participant Portal</span></div>
+  <nav>
+    <a href="dashboard-participant.html" class="active"><i class="fa-solid fa-house"></i><span>My Dashboard</span></a>
+    <a href="participant-visits.html"><i class="fa-solid fa-calendar-check"></i><span>My Visits</span></a>
+    <a href="participant-health.html"><i class="fa-solid fa-file-medical"></i><span>My Health Data</span></a>
+    <a href="participant-documents.html"><i class="fa-solid fa-folder-open"></i><span>My Documents</span></a>
+    <a href="#"><i class="fa-solid fa-circle-question"></i><span>Help & FAQ</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> Subject: SUB-001<br>
+    <span style="font-size:0.72rem;opacity:0.6;">Study Participant</span><br>
+    <a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1><i class="fa-solid fa-person" style="color:#2980b9;"></i> &nbsp;My Participant Portal</h1>
+    <div class="topbar-right">
+      <span style="font-size:0.82rem;color:#7f8c8d;">Welcome back!</span>
+      <div class="avatar" style="background:#27ae60;">S1</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="alert alert-success">
+      <i class="fa-solid fa-circle-check"></i>
+      <span>Your next visit <strong>V4 – End of Study</strong> is scheduled for <strong>Jul 20, 2025</strong> at City General Hospital.</span>
+    </div>
+
+    <!-- PARTICIPANT INFO + STUDY INFO -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:22px;">
+
+      <div class="card" style="margin:0;">
+        <div class="card-header"><h3><i class="fa-solid fa-user" style="color:#2980b9;"></i> &nbsp;My Information</h3></div>
+        <div class="info-row"><span>Subject ID</span><span><strong>SUB-001</strong></span></div>
+        <div class="info-row"><span>Study</span><span>CT-2025-001 (CardioGuard)</span></div>
+        <div class="info-row"><span>Site</span><span>City General Hospital</span></div>
+        <div class="info-row"><span>Consent Date</span><span>Jan 18, 2025</span></div>
+        <div class="info-row"><span>Enrollment Date</span><span>Jan 20, 2025</span></div>
+        <div class="info-row"><span>My Coordinator</span><span>Ms. Priya Sharma</span></div>
+        <div class="info-row"><span>My Doctor</span><span>Dr. Sarah Johnson</span></div>
+        <div class="info-row"><span>Status</span><span><span class="badge badge-enrolled">Enrolled</span></span></div>
+      </div>
+
+      <div class="card" style="margin:0;">
+        <div class="card-header"><h3><i class="fa-solid fa-flask" style="color:#27ae60;"></i> &nbsp;About My Study</h3></div>
+        <div class="info-row"><span>Study Name</span><span>CardioGuard Phase III</span></div>
+        <div class="info-row"><span>Phase</span><span>Phase III</span></div>
+        <div class="info-row"><span>Purpose</span><span>Heart failure treatment</span></div>
+        <div class="info-row"><span>Total Visits</span><span>5 visits</span></div>
+        <div class="info-row"><span>My Progress</span><span>4 of 5 completed</span></div>
+        <div class="info-row"><span>Study End</span><span>Dec 31, 2025</span></div>
+        <div style="margin-top:14px;">
+          <div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:6px;"><span>Overall Progress</span><span style="font-weight:600;">80%</span></div>
+          <div class="progress" style="height:10px;"><div class="progress-bar" style="width:80%;"></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- VISIT SCHEDULE -->
+    <div class="card">
+      <div class="card-header"><h3><i class="fa-solid fa-calendar-check" style="color:#2980b9;"></i> &nbsp;My Visit Schedule</h3></div>
+      <div class="visit-grid">
+        <div class="visit-card completed">
+          <h4>V0 – Screening</h4>
+          <p>Jan 15, 2025</p>
+          <p style="font-size:0.78rem;color:#7f8c8d;margin-top:4px;">City General Hospital</p>
+          <span class="badge badge-active" style="margin-top:8px;display:inline-block;">✓ Completed</span>
+        </div>
+        <div class="visit-card completed">
+          <h4>V1 – Baseline</h4>
+          <p>Jan 20, 2025</p>
+          <p style="font-size:0.78rem;color:#7f8c8d;margin-top:4px;">City General Hospital</p>
+          <span class="badge badge-active" style="margin-top:8px;display:inline-block;">✓ Completed</span>
+        </div>
+        <div class="visit-card completed">
+          <h4>V2 – Week 4</h4>
+          <p>Feb 17, 2025</p>
+          <p style="font-size:0.78rem;color:#7f8c8d;margin-top:4px;">City General Hospital</p>
+          <span class="badge badge-active" style="margin-top:8px;display:inline-block;">✓ Completed</span>
+        </div>
+        <div class="visit-card completed">
+          <h4>V3 – Week 12</h4>
+          <p>Apr 14, 2025</p>
+          <p style="font-size:0.78rem;color:#7f8c8d;margin-top:4px;">City General Hospital</p>
+          <span class="badge badge-active" style="margin-top:8px;display:inline-block;">✓ Completed</span>
+        </div>
+        <div class="visit-card upcoming" style="border-left-color:#f39c12;">
+          <h4>V4 – End of Study</h4>
+          <p><strong style="color:#f39c12;">Jul 20, 2025</strong></p>
+          <p style="font-size:0.78rem;color:#7f8c8d;margin-top:4px;">City General Hospital · 10:00 AM</p>
+          <span class="badge badge-setup" style="margin-top:8px;display:inline-block;">⏰ Upcoming</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MY LATEST HEALTH DATA -->
+    <div class="card">
+      <div class="card-header"><h3><i class="fa-solid fa-heart-pulse" style="color:#e74c3c;"></i> &nbsp;My Latest Health Readings (Visit 3 – Apr 14)</h3></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;">
+        <div class="health-card">
+          <i class="fa-solid fa-weight-scale" style="color:#2980b9;font-size:1.4rem;"></i>
+          <div class="val" style="color:#2980b9;">72.3</div>
+          <div class="unit">kg</div>
+          <div class="lbl">Weight</div>
+        </div>
+        <div class="health-card">
+          <i class="fa-solid fa-heart-pulse" style="color:#e74c3c;font-size:1.4rem;"></i>
+          <div class="val" style="color:#e74c3c;">118/76</div>
+          <div class="unit">mmHg</div>
+          <div class="lbl">Blood Pressure</div>
+        </div>
+        <div class="health-card">
+          <i class="fa-solid fa-heart" style="color:#e74c3c;font-size:1.4rem;"></i>
+          <div class="val" style="color:#e74c3c;">74</div>
+          <div class="unit">bpm</div>
+          <div class="lbl">Heart Rate</div>
+        </div>
+        <div class="health-card">
+          <i class="fa-solid fa-thermometer-half" style="color:#f39c12;font-size:1.4rem;"></i>
+          <div class="val" style="color:#f39c12;">36.8</div>
+          <div class="unit">°C</div>
+          <div class="lbl">Temperature</div>
+        </div>
+        <div class="health-card">
+          <i class="fa-solid fa-lungs" style="color:#27ae60;font-size:1.4rem;"></i>
+          <div class="val" style="color:#27ae60;">99</div>
+          <div class="unit">%</div>
+          <div class="lbl">SpO2</div>
+        </div>
+        <div class="health-card">
+          <i class="fa-solid fa-vial" style="color:#8e44ad;font-size:1.4rem;"></i>
+          <div class="val" style="color:#8e44ad;">14.2</div>
+          <div class="unit">g/dL</div>
+          <div class="lbl">Hemoglobin</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MY DOCUMENTS -->
+    <div class="card">
+      <div class="card-header"><h3><i class="fa-solid fa-folder-open" style="color:#f39c12;"></i> &nbsp;My Documents</h3></div>
+      <table>
+        <thead><tr><th>Document</th><th>Date</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Signed Consent Form</td><td>Jan 18, 2025</td><td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Download</button></td></tr>
+          <tr><td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Participant Information Sheet</td><td>Jan 15, 2025</td><td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Download</button></td></tr>
+          <tr><td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Visit 3 Lab Results</td><td>Apr 14, 2025</td><td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Download</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="card">
+      <div class="card-header"><h3><i class="fa-solid fa-phone" style="color:#27ae60;"></i> &nbsp;Contact My Care Team</h3></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+        <div style="border:1px solid #dce1e7;border-radius:8px;padding:16px;text-align:center;">
+          <i class="fa-solid fa-user-doctor" style="font-size:1.5rem;color:#2980b9;margin-bottom:8px;display:block;"></i>
+          <p style="font-size:0.88rem;font-weight:600;">Dr. Sarah Johnson</p>
+          <p style="font-size:0.78rem;color:#7f8c8d;">Principal Investigator</p>
+          <p style="font-size:0.78rem;color:#2980b9;margin-top:6px;">+91 98765 43210</p>
+        </div>
+        <div style="border:1px solid #dce1e7;border-radius:8px;padding:16px;text-align:center;">
+          <i class="fa-solid fa-clipboard-user" style="font-size:1.5rem;color:#27ae60;margin-bottom:8px;display:block;"></i>
+          <p style="font-size:0.88rem;font-weight:600;">Ms. Priya Sharma</p>
+          <p style="font-size:0.78rem;color:#7f8c8d;">Site Coordinator</p>
+          <p style="font-size:0.78rem;color:#2980b9;margin-top:6px;">+91 98765 11111</p>
+        </div>
+        <div style="border:1px solid #dce1e7;border-radius:8px;padding:16px;text-align:center;">
+          <i class="fa-solid fa-hospital" style="font-size:1.5rem;color:#f39c12;margin-bottom:8px;display:block;"></i>
+          <p style="font-size:0.88rem;font-weight:600;">City General Hospital</p>
+          <p style="font-size:0.78rem;color:#7f8c8d;">Study Site</p>
+          <p style="font-size:0.78rem;color:#2980b9;margin-top:6px;">+91 22 1234 5678</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

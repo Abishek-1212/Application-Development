@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – Site Coordinator Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>Coordinator Portal</span></div>
+  <nav>
+    <a href="dashboard-coordinator.html" class="active"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+    <a href="participants.html"><i class="fa-solid fa-users"></i><span>Participants</span></a>
+    <a href="ecrf.html"><i class="fa-solid fa-file-medical"></i><span>eCRF Entry</span></a>
+    <a href="adverse-events.html"><i class="fa-solid fa-triangle-exclamation"></i><span>Adverse Events</span></a>
+    <a href="documents.html"><i class="fa-solid fa-folder-open"></i><span>Documents</span></a>
+    <a href="studies.html"><i class="fa-solid fa-clipboard-list"></i><span>Study Info</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> Ms. Priya Sharma<br>
+    <span style="font-size:0.72rem;opacity:0.6;">Site Coordinator · SITE-01</span><br>
+    <a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1><i class="fa-solid fa-clipboard-user" style="color:#2980b9;"></i> &nbsp;Site Coordinator Dashboard</h1>
+    <div class="topbar-right">
+      <button class="btn btn-success" onclick="location.href='participants.html'"><i class="fa-solid fa-user-plus"></i> Enroll Participant</button>
+      <div style="position:relative;cursor:pointer;">
+        <i class="fa-solid fa-bell" style="font-size:1.1rem;color:#7f8c8d;"></i>
+        <div class="badge-alert" style="position:absolute;top:-6px;right:-6px;">4</div>
+      </div>
+      <div class="avatar" style="background:#f39c12;">PS</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-calendar-exclamation"></i>
+      <span><strong>3 participants</strong> have upcoming visits this week. <a href="participant-details.html" style="color:#7d6608;font-weight:600;">View Schedule</a></span>
+    </div>
+
+    <div class="stat-grid">
+      <a href="participants.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon blue"><i class="fa-solid fa-users"></i></div>
+        <div><div class="stat-val">32</div><div class="stat-label">My Site Participants</div></div>
+      </a>
+      <a href="participant-details.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon green"><i class="fa-solid fa-calendar-check"></i></div>
+        <div><div class="stat-val">3</div><div class="stat-label">Visits This Week</div></div>
+      </a>
+      <a href="ecrf.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon orange"><i class="fa-solid fa-file-medical"></i></div>
+        <div><div class="stat-val">4</div><div class="stat-label">eCRFs to Submit</div></div>
+      </a>
+      <a href="documents.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon red"><i class="fa-solid fa-file-circle-exclamation"></i></div>
+        <div><div class="stat-val">2</div><div class="stat-label">Docs Pending Upload</div></div>
+      </a>
+      <a href="participants.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon purple"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div><div class="stat-val">5</div><div class="stat-label">In Screening</div></div>
+      </a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
+
+      <!-- UPCOMING VISITS -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-calendar-week" style="color:#2980b9;"></i> &nbsp;Upcoming Visits</h3>
+          <a href="participant-details.html" style="font-size:0.8rem;color:#2980b9;">Full Schedule</a>
+        </div>
+        <table>
+          <thead><tr><th>Subject</th><th>Visit</th><th>Date</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td><strong>SUB-001</strong></td><td>V4 – End of Study</td><td>Jul 20</td><td><a href="ecrf.html" class="btn btn-primary btn-sm">Open eCRF</a></td></tr>
+            <tr><td><strong>SUB-007</strong></td><td>V2 – Week 4</td><td>Jul 16</td><td><a href="ecrf.html" class="btn btn-primary btn-sm">Open eCRF</a></td></tr>
+            <tr><td><strong>SUB-014</strong></td><td>V3 – Week 12</td><td>Jul 18</td><td><a href="ecrf.html" class="btn btn-primary btn-sm">Open eCRF</a></td></tr>
+            <tr><td><strong>SUB-022</strong></td><td>V1 – Baseline</td><td>Jul 22</td><td><a href="ecrf.html" class="btn btn-outline btn-sm">Schedule</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SCREENING PIPELINE -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-magnifying-glass" style="color:#8e44ad;"></i> &nbsp;Screening Pipeline</h3>
+          <button class="btn btn-success btn-sm" onclick="location.href='participants.html'"><i class="fa-solid fa-plus"></i> Add</button>
+        </div>
+        <table>
+          <thead><tr><th>Subject</th><th>Screen Date</th><th>Eligibility</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr style="cursor:pointer;" onclick="location.href='participant-details.html'"><td>SUB-043</td><td>Jul 14</td><td><span class="badge badge-pending">Pending</span></td><td><button class="btn btn-outline btn-sm" onclick="event.stopPropagation()">Check</button></td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='participant-details.html'"><td>SUB-044</td><td>Jul 15</td><td><span class="badge badge-active">Eligible</span></td><td><button class="btn btn-success btn-sm" onclick="event.stopPropagation()">Enroll</button></td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='participant-details.html'"><td>SUB-045</td><td>Jul 16</td><td><span class="badge badge-severe" style="background:#fdedec;color:#e74c3c;">Failed</span></td><td><button class="btn btn-outline btn-sm" onclick="event.stopPropagation()">View</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ECRF TASKS -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-file-medical" style="color:#f39c12;"></i> &nbsp;eCRF Tasks</h3>
+          <a href="ecrf.html" style="font-size:0.8rem;color:#2980b9;">Open eCRF</a>
+        </div>
+        <table>
+          <thead><tr><th>Subject</th><th>Form</th><th>Due</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>SUB-001</td><td>EOS eCRF</td><td><span style="color:#e74c3c;">Jul 20</span></td><td><a href="ecrf.html" class="btn btn-primary btn-sm">Fill</a></td></tr>
+            <tr><td>SUB-007</td><td>Follow-up V2</td><td>Jul 16</td><td><a href="ecrf.html" class="btn btn-primary btn-sm">Fill</a></td></tr>
+            <tr><td>SUB-014</td><td>Follow-up V3</td><td>Jul 18</td><td><a href="ecrf.html" class="btn btn-outline btn-sm">Draft</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RECENT ACTIVITY -->
+      <div class="card">
+        <div class="card-header"><h3><i class="fa-solid fa-clock-rotate-left" style="color:#2980b9;"></i> &nbsp;My Recent Activity</h3></div>
+        <ul class="timeline">
+          <li style="cursor:pointer;" onclick="location.href='participant-details.html'">
+            <div class="tl-dot green"><i class="fa-solid fa-user-plus"></i></div>
+            <div class="tl-text"><p>SUB-042 enrolled successfully</p><span>2 hours ago</span></div>
+          </li>
+          <li style="cursor:pointer;" onclick="location.href='ecrf.html'">
+            <div class="tl-dot blue"><i class="fa-solid fa-file-medical"></i></div>
+            <div class="tl-text"><p>eCRF submitted – SUB-012 V3</p><span>Yesterday</span></div>
+          </li>
+          <li style="cursor:pointer;" onclick="location.href='documents.html'">
+            <div class="tl-dot orange"><i class="fa-solid fa-file-upload"></i></div>
+            <div class="tl-text"><p>Consent form uploaded – SUB-043</p><span>Yesterday</span></div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – Sponsor Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>Sponsor Portal</span></div>
+  <nav>
+    <a href="dashboard-sponsor.html" class="active"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+    <a href="studies.html"><i class="fa-solid fa-clipboard-list"></i><span>My Studies</span></a>
+    <a href="participants.html"><i class="fa-solid fa-users"></i><span>Participants</span></a>
+    <a href="adverse-events.html"><i class="fa-solid fa-triangle-exclamation"></i><span>Safety Reports</span></a>
+    <a href="documents.html"><i class="fa-solid fa-folder-open"></i><span>Documents</span></a>
+    <a href="reports.html"><i class="fa-solid fa-chart-bar"></i><span>Analytics</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> PharmaCorp Ltd<br>
+    <span style="font-size:0.72rem;opacity:0.6;">Sponsor</span><br>
+    <a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1><i class="fa-solid fa-building" style="color:#2980b9;"></i> &nbsp;Sponsor Dashboard</h1>
+    <div class="topbar-right">
+      <span style="font-size:0.82rem;color:#7f8c8d;">PharmaCorp Ltd</span>
+      <div class="avatar" style="background:#2980b9;">SP</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-circle-info"></i>
+      <span>Enrollment for <strong>CT-2025-001</strong> is at 85% — on track to meet target by Aug 2025.</span>
+    </div>
+
+    <!-- SPONSOR STATS -->
+    <div class="stat-grid">
+      <a href="studies.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon blue"><i class="fa-solid fa-flask"></i></div>
+        <div><div class="stat-val">5</div><div class="stat-label">My Sponsored Trials</div></div>
+      </a>
+      <a href="participants.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon green"><i class="fa-solid fa-users"></i></div>
+        <div><div class="stat-val">312</div><div class="stat-label">Total Enrolled</div></div>
+      </a>
+      <a href="reports.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon purple"><i class="fa-solid fa-percent"></i></div>
+        <div><div class="stat-val">76%</div><div class="stat-label">Enrollment Rate</div></div>
+      </a>
+      <a href="adverse-events.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <div><div class="stat-val">2</div><div class="stat-label">Open SAEs</div></div>
+      </a>
+      <a href="reports.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon orange"><i class="fa-solid fa-flag-checkered"></i></div>
+        <div><div class="stat-val">89%</div><div class="stat-label">Protocol Compliance</div></div>
+      </a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
+
+      <!-- MY TRIALS -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-flask" style="color:#2980b9;"></i> &nbsp;My Sponsored Trials</h3>
+          <a href="studies.html" style="font-size:0.8rem;color:#2980b9;">View All</a>
+        </div>
+        <table>
+          <thead><tr><th>Study</th><th>Phase</th><th>Enrollment</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr style="cursor:pointer;" onclick="location.href='study-details.html'">
+              <td><strong>CT-2025-001</strong><br><span style="font-size:0.75rem;color:#7f8c8d;">CardioGuard</span></td>
+              <td>Phase III</td>
+              <td><div style="display:flex;align-items:center;gap:6px;"><div class="progress" style="width:60px;"><div class="progress-bar" style="width:85%;"></div></div><span style="font-size:0.75rem;">85%</span></div></td>
+              <td><span class="badge badge-active">Active</span></td>
+            </tr>
+            <tr style="cursor:pointer;" onclick="location.href='study-details.html'">
+              <td><strong>CT-2025-002</strong><br><span style="font-size:0.75rem;color:#7f8c8d;">NeuroShield</span></td>
+              <td>Phase II</td>
+              <td><div style="display:flex;align-items:center;gap:6px;"><div class="progress" style="width:60px;"><div class="progress-bar" style="width:62%;background:#27ae60;"></div></div><span style="font-size:0.75rem;">62%</span></div></td>
+              <td><span class="badge badge-active">Active</span></td>
+            </tr>
+            <tr style="cursor:pointer;" onclick="location.href='study-details.html'">
+              <td><strong>CT-2024-015</strong><br><span style="font-size:0.75rem;color:#7f8c8d;">PulmoFlex</span></td>
+              <td>Phase III</td>
+              <td><div style="display:flex;align-items:center;gap:6px;"><div class="progress" style="width:60px;"><div class="progress-bar" style="width:100%;background:#27ae60;"></div></div><span style="font-size:0.75rem;">100%</span></div></td>
+              <td><span class="badge badge-completed">Completed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ENROLLMENT CHART -->
+      <div class="chart-box" style="margin:0;">
+        <h3>Enrollment Progress</h3>
+        <canvas id="sponsorEnroll" height="160"></canvas>
+      </div>
+
+      <!-- SAFETY SUMMARY -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-shield-halved" style="color:#e74c3c;"></i> &nbsp;Safety Summary</h3>
+          <a href="adverse-events.html" style="font-size:0.8rem;color:#e74c3c;">View All AEs</a>
+        </div>
+        <table>
+          <thead><tr><th>Study</th><th>Total AEs</th><th>SAEs</th><th>Open</th></tr></thead>
+          <tbody>
+            <tr style="cursor:pointer;" onclick="location.href='adverse-events.html'"><td>CT-2025-001</td><td>28</td><td><span style="color:#e74c3c;font-weight:600;">2</span></td><td>3</td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='adverse-events.html'"><td>CT-2025-002</td><td>14</td><td>0</td><td>1</td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='adverse-events.html'"><td>CT-2025-003</td><td>6</td><td>0</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RECENT REPORTS -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-chart-bar" style="color:#27ae60;"></i> &nbsp;Recent Reports</h3>
+          <a href="reports.html" style="font-size:0.8rem;color:#2980b9;">All Reports</a>
+        </div>
+        <ul class="timeline">
+          <li style="cursor:pointer;" onclick="location.href='reports.html'">
+            <div class="tl-dot blue"><i class="fa-solid fa-file-lines"></i></div>
+            <div class="tl-text"><p>Q2 Enrollment Report</p><span>Generated Jul 1, 2025</span></div>
+          </li>
+          <li style="cursor:pointer;" onclick="location.href='reports.html'">
+            <div class="tl-dot red"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="tl-text"><p>Safety Monitoring Report</p><span>Generated Jul 1, 2025</span></div>
+          </li>
+          <li style="cursor:pointer;" onclick="location.href='reports.html'">
+            <div class="tl-dot green"><i class="fa-solid fa-clipboard-check"></i></div>
+            <div class="tl-text"><p>Protocol Compliance Report</p><span>Generated Jun 15, 2025</span></div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/script.js"></script>
+<script>
+new Chart(document.getElementById('sponsorEnroll'), {
+  type: 'bar',
+  data: {
+    labels: ['CT-2025-001','CT-2025-002','CT-2025-003','CT-2025-004'],
+    datasets: [
+      { label:'Enrolled', data:[85,62,45,30], backgroundColor:'#2980b9' },
+      { label:'Target',   data:[100,80,60,50], backgroundColor:'#ebf5fb' }
+    ]
+  },
+  options: { responsive:true, plugins:{legend:{position:'bottom'}}, scales:{y:{beginAtZero:true}} }
+});
+</script>
+</body>
+</html>

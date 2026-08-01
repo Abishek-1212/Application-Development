@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – Study Details</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>Clinical Trial Management</span></div>
+  <nav>
+    <a href="dashboard.html"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+    <a href="studies.html" class="active"><i class="fa-solid fa-clipboard-list"></i><span>Studies</span></a>
+    <a href="participants.html"><i class="fa-solid fa-users"></i><span>Participants</span></a>
+    <a href="ecrf.html"><i class="fa-solid fa-file-medical"></i><span>eCRF</span></a>
+    <a href="adverse-events.html"><i class="fa-solid fa-triangle-exclamation"></i><span>Adverse Events</span></a>
+    <a href="documents.html"><i class="fa-solid fa-folder-open"></i><span>Regulatory Docs</span></a>
+    <a href="reports.html"><i class="fa-solid fa-chart-bar"></i><span>Reports</span></a>
+    <a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+  </nav>
+  <div class="sidebar-footer"><i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> Logged In User<br><span class="role-label" style="font-size:0.72rem;opacity:0.6;"></span><br><a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1>
+      <a href="studies.html" style="color:#7f8c8d;font-size:0.85rem;font-weight:400;"><i class="fa-solid fa-arrow-left"></i> Studies</a>
+      &nbsp;/&nbsp; CT-2025-001
+    </h1>
+    <div class="topbar-right">
+      <button class="btn btn-outline"><i class="fa-solid fa-pen"></i> Edit</button>
+      <span class="badge badge-active" style="font-size:0.85rem;padding:6px 14px;">Active</span>
+      <div class="avatar">AD</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- STUDY HEADER -->
+    <div class="card" style="margin-bottom:22px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+        <div>
+          <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">CardioGuard Phase III Trial</h2>
+          <p style="color:#7f8c8d;font-size:0.88rem;">CT-2025-001 &nbsp;·&nbsp; Sponsor: PharmaCorp Ltd &nbsp;·&nbsp; PI: Dr. Sarah Johnson</p>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn btn-success" onclick="location.href='participants.html'"><i class="fa-solid fa-user-plus"></i> Add Participant</button>
+          <a href="documents.html" class="btn btn-outline"><i class="fa-solid fa-folder-open"></i> Documents</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAT CARDS -->
+    <div class="stat-grid" style="margin-bottom:22px;">
+      <div class="stat-card"><div class="stat-icon blue"><i class="fa-solid fa-vial"></i></div><div><div class="stat-val">Phase III</div><div class="stat-label">Study Phase</div></div></div>
+      <div class="stat-card"><div class="stat-icon red"><i class="fa-solid fa-heart-pulse"></i></div><div><div class="stat-val">Cardiology</div><div class="stat-label">Therapeutic Area</div></div></div>
+      <div class="stat-card"><div class="stat-icon green"><i class="fa-solid fa-users"></i></div><div><div class="stat-val">85 / 100</div><div class="stat-label">Enrollment</div></div></div>
+      <div class="stat-card"><div class="stat-icon orange"><i class="fa-solid fa-calendar"></i></div><div><div class="stat-val">Jan 2025</div><div class="stat-label">Start Date</div></div></div>
+      <div class="stat-card"><div class="stat-icon purple"><i class="fa-solid fa-file-lines"></i></div><div><div class="stat-val">v2.1</div><div class="stat-label">Protocol Version</div></div></div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tab-group">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="tab-overview">Overview</button>
+        <button class="tab-btn" data-tab="tab-protocol">Protocol</button>
+        <button class="tab-btn" data-tab="tab-sites">Sites</button>
+        <button class="tab-btn" data-tab="tab-visits">Visit Schedule</button>
+        <button class="tab-btn" data-tab="tab-docs">Documents</button>
+      </div>
+
+      <!-- OVERVIEW -->
+      <div class="tab-content active" id="tab-overview">
+        <div style="display:grid;grid-template-columns:2fr 1fr;gap:22px;">
+          <div class="card">
+            <div class="card-header"><h3>Study Description</h3></div>
+            <p style="font-size:0.875rem;line-height:1.7;color:#5d6d7e;">
+              A randomized, double-blind, placebo-controlled Phase III clinical trial evaluating the efficacy and safety of CardioGuard (CG-101) in patients with moderate-to-severe heart failure. The study aims to demonstrate a statistically significant reduction in major adverse cardiovascular events (MACE) compared to standard of care.
+            </p>
+            <div style="margin-top:18px;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.82rem;">
+                <span>Enrollment Progress</span><span style="font-weight:600;">85%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:85%;"></div></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Key Dates</h3></div>
+            <div style="font-size:0.85rem;">
+              <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f4f8;"><span style="color:#7f8c8d;">Start Date</span><span>Jan 15, 2025</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f4f8;"><span style="color:#7f8c8d;">End Date</span><span>Dec 31, 2025</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f4f8;"><span style="color:#7f8c8d;">IRB Approval</span><span>Jan 10, 2025</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f4f8;"><span style="color:#7f8c8d;">Last Updated</span><span>Jul 12, 2025</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 0;"><span style="color:#7f8c8d;">Sites</span><span>4 Active</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROTOCOL -->
+      <div class="tab-content" id="tab-protocol">
+        <div class="card">
+          <div class="card-header"><h3>Protocol Versions</h3><button class="btn btn-primary btn-sm"><i class="fa-solid fa-upload"></i> Upload New Version</button></div>
+          <table>
+            <thead><tr><th>Version</th><th>Date</th><th>Changes</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>v2.1</td><td>Jul 10, 2025</td><td>Updated inclusion criteria</td><td><span class="badge badge-active">Current</span></td><td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i></button></td></tr>
+              <tr><td>v2.0</td><td>Apr 5, 2025</td><td>Dosage modification</td><td><span class="badge badge-closed">Superseded</span></td><td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i></button></td></tr>
+              <tr><td>v1.0</td><td>Jan 10, 2025</td><td>Initial protocol</td><td><span class="badge badge-closed">Superseded</span></td><td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i></button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SITES -->
+      <div class="tab-content" id="tab-sites">
+        <div class="card">
+          <div class="card-header"><h3>Participating Sites</h3><button class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Add Site</button></div>
+          <table>
+            <thead><tr><th>Site ID</th><th>Site Name</th><th>PI</th><th>City</th><th>Enrolled</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr style="cursor:pointer;" onclick="location.href='participants.html'"><td>SITE-01</td><td>City General Hospital</td><td>Dr. Sarah Johnson</td><td>Mumbai</td><td>32</td><td><span class="badge badge-active">Active</span></td></tr>
+              <tr style="cursor:pointer;" onclick="location.href='participants.html'"><td>SITE-02</td><td>Apollo Research Center</td><td>Dr. Raj Patel</td><td>Delhi</td><td>28</td><td><span class="badge badge-active">Active</span></td></tr>
+              <tr style="cursor:pointer;" onclick="location.href='participants.html'"><td>SITE-03</td><td>Medanta Clinical Institute</td><td>Dr. Priya Sharma</td><td>Bangalore</td><td>15</td><td><span class="badge badge-active">Active</span></td></tr>
+              <tr style="cursor:pointer;" onclick="location.href='participants.html'"><td>SITE-04</td><td>AIIMS Research Wing</td><td>Dr. Anil Kumar</td><td>Chennai</td><td>10</td><td><span class="badge badge-setup">Setup</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- VISITS -->
+      <div class="tab-content" id="tab-visits">
+        <div class="card">
+          <div class="card-header"><h3>Visit Schedule Template</h3></div>
+          <table>
+            <thead><tr><th>Visit</th><th>Name</th><th>Window (Days)</th><th>Assessments</th><th>eCRF Forms</th></tr></thead>
+            <tbody>
+              <tr><td>V0</td><td>Screening</td><td>-14 to -1</td><td>Medical History, Labs, ECG</td><td>Screening Form</td></tr>
+              <tr><td>V1</td><td>Baseline / Enrollment</td><td>Day 0</td><td>Vitals, Consent, Drug Dispensing</td><td>Baseline eCRF</td></tr>
+              <tr><td>V2</td><td>Week 4 Follow-up</td><td>Day 28 ±3</td><td>Vitals, Labs, AE Check</td><td>Follow-up eCRF</td></tr>
+              <tr><td>V3</td><td>Week 12 Follow-up</td><td>Day 84 ±7</td><td>Vitals, Labs, Efficacy</td><td>Follow-up eCRF</td></tr>
+              <tr><td>V4</td><td>End of Study</td><td>Day 180 ±7</td><td>Full Assessment, Drug Return</td><td>EOS eCRF</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- DOCUMENTS -->
+      <div class="tab-content" id="tab-docs">
+        <div class="card">
+          <div class="card-header"><h3>Study Documents</h3><a href="documents.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-folder-open"></i> Manage All Docs</a></div>
+          <table>
+            <thead><tr><th>Document</th><th>Version</th><th>Uploaded</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Protocol v2.1</td><td>2.1</td><td>Jul 10, 2025</td><td><span class="badge badge-approved">Approved</span></td></tr>
+              <tr><td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Informed Consent Form</td><td>1.2</td><td>Jun 5, 2025</td><td><span class="badge badge-approved">Approved</span></td></tr>
+              <tr><td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;IRB Approval Letter</td><td>1.0</td><td>Jan 10, 2025</td><td><span class="badge badge-approved">Approved</span></td></tr>
+              <tr><td><i class="fa-solid fa-file-word" style="color:#2980b9;"></i> &nbsp;Investigator Brochure</td><td>3.0</td><td>Dec 20, 2024</td><td><span class="badge badge-approved">Approved</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- end tab-group -->
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – My Health Data</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .health-card {
+    background:#fff; border-radius:10px; padding:20px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.08);
+    text-align:center;
+  }
+  .health-card .val { font-size:1.8rem; font-weight:700; margin:8px 0 4px; }
+  .health-card .lbl { font-size:0.78rem; color:#7f8c8d; }
+  .health-card .unit { font-size:0.75rem; color:#bdc3c7; }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>Participant Portal</span></div>
+  <nav>
+    <a href="dashboard-participant.html"><i class="fa-solid fa-house"></i><span>My Dashboard</span></a>
+    <a href="participant-visits.html"><i class="fa-solid fa-calendar-check"></i><span>My Visits</span></a>
+    <a href="participant-health.html" class="active"><i class="fa-solid fa-file-medical"></i><span>My Health Data</span></a>
+    <a href="participant-documents.html"><i class="fa-solid fa-folder-open"></i><span>My Documents</span></a>
+    <a href="#"><i class="fa-solid fa-circle-question"></i><span>Help &amp; FAQ</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> Subject: SUB-001<br>
+    <span style="font-size:0.72rem;opacity:0.6;">Study Participant</span><br>
+    <a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1><i class="fa-solid fa-heart-pulse" style="color:#e74c3c;"></i> &nbsp;My Health Data</h1>
+    <div class="topbar-right">
+      <span style="font-size:0.82rem;color:#7f8c8d;">Subject: SUB-001</span>
+      <div class="avatar" style="background:#27ae60;">S1</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- Latest readings -->
+    <div class="card">
+      <div class="card-header"><h3><i class="fa-solid fa-heart-pulse" style="color:#e74c3c;"></i> &nbsp;Latest Readings – Visit 3 (Apr 14, 2025)</h3></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;">
+        <div class="health-card">
+          <i class="fa-solid fa-weight-scale" style="color:#2980b9;font-size:1.4rem;"></i>
+          <div class="val" style="color:#2980b9;">72.3</div>
+          <div class="unit">kg</div>
+          <div class="lbl">Weight</div>
+        </div>
+        <div class="health-card">
+          <i class="fa-solid fa-heart-pulse" style="color:#e74c3c;font-size:1.4rem;"></i>
+          <div class="val" style="color:#e74c3c;">118/76</div>
+          <div class="unit">mmHg</div>
+          <div class="lbl">Blood Pressure</div>
+        </div>
+        <div class="health-card">
+          <i class="fa-solid fa-heart" style="color:#e74c3c;font-size:1.4rem;"></i>
+          <div class="val" style="color:#e74c3c;">74</div>
+          <div class="unit">bpm</div>
+          <div class="lbl">Heart Rate</div>
+        </div>
+        <div class="health-card">
+          <i class="fa-solid fa-thermometer-half" style="color:#f39c12;font-size:1.4rem;"></i>
+          <div class="val" style="color:#f39c12;">36.8</div>
+          <div class="unit">°C</div>
+          <div class="lbl">Temperature</div>
+        </div>
+        <div class="health-card">
+          <i class="fa-solid fa-lungs" style="color:#27ae60;font-size:1.4rem;"></i>
+          <div class="val" style="color:#27ae60;">99</div>
+          <div class="unit">%</div>
+          <div class="lbl">SpO2</div>
+        </div>
+        <div class="health-card">
+          <i class="fa-solid fa-vial" style="color:#8e44ad;font-size:1.4rem;"></i>
+          <div class="val" style="color:#8e44ad;">14.2</div>
+          <div class="unit">g/dL</div>
+          <div class="lbl">Hemoglobin</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- History table -->
+    <div class="card">
+      <div class="card-header"><h3><i class="fa-solid fa-table" style="color:#2980b9;"></i> &nbsp;Vitals History</h3></div>
+      <table>
+        <thead>
+          <tr><th>Visit</th><th>Date</th><th>Weight (kg)</th><th>BP (mmHg)</th><th>HR (bpm)</th><th>Temp (°C)</th><th>SpO2 (%)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>V1 – Baseline</td><td>Jan 20, 2025</td><td>73.1</td><td>122/80</td><td>78</td><td>36.6</td><td>98</td></tr>
+          <tr><td>V2 – Week 4</td><td>Feb 17, 2025</td><td>72.8</td><td>120/78</td><td>76</td><td>36.7</td><td>98</td></tr>
+          <tr><td>V3 – Week 12</td><td>Apr 14, 2025</td><td>72.3</td><td>118/76</td><td>74</td><td>36.8</td><td>99</td></tr>
+          <tr style="background:#f8f9fa;color:#aaa;"><td>V4 – End of Study</td><td>Jul 20, 2025</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Lab results -->
+    <div class="card">
+      <div class="card-header"><h3><i class="fa-solid fa-flask" style="color:#8e44ad;"></i> &nbsp;Lab Results – Visit 3</h3></div>
+      <table>
+        <thead>
+          <tr><th>Test</th><th>Result</th><th>Unit</th><th>Normal Range</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Hemoglobin</td><td>14.2</td><td>g/dL</td><td>13.0 – 17.0</td><td><span class="badge badge-active">Normal</span></td></tr>
+          <tr><td>WBC Count</td><td>6.8</td><td>×10³/µL</td><td>4.5 – 11.0</td><td><span class="badge badge-active">Normal</span></td></tr>
+          <tr><td>Platelet Count</td><td>210</td><td>×10³/µL</td><td>150 – 400</td><td><span class="badge badge-active">Normal</span></td></tr>
+          <tr><td>Creatinine</td><td>0.9</td><td>mg/dL</td><td>0.7 – 1.2</td><td><span class="badge badge-active">Normal</span></td></tr>
+          <tr><td>ALT</td><td>28</td><td>U/L</td><td>7 – 40</td><td><span class="badge badge-active">Normal</span></td></tr>
+          <tr><td>Blood Glucose</td><td>95</td><td>mg/dL</td><td>70 – 100</td><td><span class="badge badge-active">Normal</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – My Documents</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>Participant Portal</span></div>
+  <nav>
+    <a href="dashboard-participant.html"><i class="fa-solid fa-house"></i><span>My Dashboard</span></a>
+    <a href="participant-visits.html"><i class="fa-solid fa-calendar-check"></i><span>My Visits</span></a>
+    <a href="participant-health.html"><i class="fa-solid fa-file-medical"></i><span>My Health Data</span></a>
+    <a href="participant-documents.html" class="active"><i class="fa-solid fa-folder-open"></i><span>My Documents</span></a>
+    <a href="#"><i class="fa-solid fa-circle-question"></i><span>Help &amp; FAQ</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> Subject: SUB-001<br>
+    <span style="font-size:0.72rem;opacity:0.6;">Study Participant</span><br>
+    <a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1><i class="fa-solid fa-folder-open" style="color:#f39c12;"></i> &nbsp;My Documents</h1>
+    <div class="topbar-right">
+      <span style="font-size:0.82rem;color:#7f8c8d;">Subject: SUB-001</span>
+      <div class="avatar" style="background:#27ae60;">S1</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="card">
+      <div class="card-header">
+        <h3><i class="fa-solid fa-file-contract" style="color:#2980b9;"></i> &nbsp;Consent Documents</h3>
+      </div>
+      <table>
+        <thead><tr><th>Document</th><th>Date</th><th>Version</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Signed Informed Consent Form</td>
+            <td>Jan 18, 2025</td>
+            <td>v2.1</td>
+            <td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Download</button></td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Participant Information Sheet</td>
+            <td>Jan 15, 2025</td>
+            <td>v2.1</td>
+            <td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Download</button></td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;HIPAA Authorization Form</td>
+            <td>Jan 18, 2025</td>
+            <td>v1.0</td>
+            <td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Download</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3><i class="fa-solid fa-flask" style="color:#8e44ad;"></i> &nbsp;Lab &amp; Visit Reports</h3>
+      </div>
+      <table>
+        <thead><tr><th>Document</th><th>Visit</th><th>Date</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Visit 1 Lab Results</td>
+            <td>V1 – Baseline</td>
+            <td>Jan 20, 2025</td>
+            <td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Download</button></td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Visit 2 Lab Results</td>
+            <td>V2 – Week 4</td>
+            <td>Feb 17, 2025</td>
+            <td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Download</button></td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Visit 3 Lab Results</td>
+            <td>V3 – Week 12</td>
+            <td>Apr 14, 2025</td>
+            <td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Download</button></td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Visit 3 Summary Report</td>
+            <td>V3 – Week 12</td>
+            <td>Apr 14, 2025</td>
+            <td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Download</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3><i class="fa-solid fa-book-open" style="color:#27ae60;"></i> &nbsp;Study Information</h3>
+      </div>
+      <table>
+        <thead><tr><th>Document</th><th>Date</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Study Protocol Summary (Participant Version)</td>
+            <td>Jan 10, 2025</td>
+            <td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Download</button></td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Medication Guide – CardioGuard</td>
+            <td>Jan 10, 2025</td>
+            <td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Download</button></td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Emergency Contact Card</td>
+            <td>Jan 18, 2025</td>
+            <td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i> Download</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

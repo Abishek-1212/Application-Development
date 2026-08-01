@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – Clinical Trial Management System</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root { --primary:#1a5276; --primary-light:#2980b9; --accent:#27ae60; --bg:#f0f4f8; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI',sans-serif; color:#2c3e50; }
+  a { text-decoration:none; color:inherit; }
+
+  /* NAV */
+  nav {
+    position:fixed; top:0; width:100%; background:var(--primary);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 48px; height:64px; z-index:100;
+  }
+  .nav-logo { color:#fff; font-size:1.2rem; font-weight:700; display:flex; align-items:center; gap:10px; }
+  .nav-links { display:flex; gap:28px; }
+  .nav-links a { color:rgba(255,255,255,0.85); font-size:0.9rem; }
+  .nav-links a:hover { color:#fff; }
+  .nav-btns { display:flex; gap:10px; }
+  .btn { padding:8px 20px; border-radius:6px; font-size:0.875rem; font-weight:500; cursor:pointer; border:none; }
+  .btn-outline-white { background:transparent; border:1.5px solid rgba(255,255,255,0.7); color:#fff; }
+  .btn-white { background:#fff; color:var(--primary); }
+
+  /* HERO */
+  .hero {
+    min-height:100vh; background:linear-gradient(135deg,#1a5276 0%,#2980b9 60%,#27ae60 100%);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:80px 24px 40px;
+  }
+  .hero-content { max-width:720px; }
+  .hero-badge {
+    display:inline-block; background:rgba(255,255,255,0.15); color:#fff;
+    padding:6px 18px; border-radius:20px; font-size:0.8rem; margin-bottom:20px;
+  }
+  .hero h1 { font-size:3rem; color:#fff; font-weight:800; line-height:1.15; margin-bottom:18px; }
+  .hero p { color:rgba(255,255,255,0.85); font-size:1.05rem; margin-bottom:36px; line-height:1.7; }
+  .hero-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn-hero-primary { background:#fff; color:var(--primary); padding:13px 32px; border-radius:8px; font-weight:600; font-size:0.95rem; }
+  .btn-hero-outline { background:transparent; border:2px solid rgba(255,255,255,0.8); color:#fff; padding:13px 32px; border-radius:8px; font-weight:600; font-size:0.95rem; }
+
+  /* STATS */
+  .stats-bar {
+    background:#fff; padding:32px 48px;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+  }
+  .stat-item { text-align:center; }
+  .stat-item .num { font-size:2rem; font-weight:800; color:var(--primary); }
+  .stat-item .lbl { font-size:0.82rem; color:#7f8c8d; margin-top:4px; }
+
+  /* SECTION */
+  section { padding:72px 48px; }
+  section h2 { font-size:1.8rem; font-weight:700; text-align:center; margin-bottom:10px; }
+  .section-sub { text-align:center; color:#7f8c8d; margin-bottom:48px; font-size:0.95rem; }
+
+  /* FEATURES */
+  .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+  .feature-card {
+    background:#fff; border-radius:12px; padding:28px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.07); transition:transform 0.2s;
+  }
+  .feature-card:hover { transform:translateY(-4px); }
+  .feature-icon {
+    width:52px; height:52px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem; margin-bottom:16px;
+  }
+  .feature-card h3 { font-size:1rem; font-weight:600; margin-bottom:8px; }
+  .feature-card p { font-size:0.85rem; color:#7f8c8d; line-height:1.6; }
+
+  /* WORKFLOW */
+  .workflow { background:#f0f4f8; }
+  .flow-steps { display:flex; align-items:flex-start; justify-content:center; flex-wrap:wrap; gap:0; }
+  .flow-step { text-align:center; padding:20px 16px; max-width:130px; }
+  .flow-step .circle {
+    width:56px; height:56px; border-radius:50%; background:var(--primary);
+    color:#fff; display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem; margin:0 auto 12px;
+  }
+  .flow-step p { font-size:0.8rem; font-weight:600; }
+  .flow-arrow { font-size:1.4rem; color:#bdc3c7; align-self:center; padding:0 4px; }
+
+  /* ROLES */
+  .roles-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; }
+  .role-card {
+    background:#fff; border-radius:10px; padding:20px; text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  }
+  .role-card i { font-size:1.6rem; color:var(--primary-light); margin-bottom:10px; display:block; }
+  .role-card h4 { font-size:0.88rem; font-weight:600; }
+
+  /* FOOTER */
+  footer {
+    background:var(--primary); color:rgba(255,255,255,0.8);
+    text-align:center; padding:28px; font-size:0.85rem;
+  }
+  footer strong { color:#fff; }
+
+  @media(max-width:768px){
+    nav { padding:0 20px; }
+    .nav-links { display:none; }
+    .hero h1 { font-size:2rem; }
+    .stats-bar { grid-template-columns:1fr 1fr; padding:24px; }
+    section { padding:48px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><i class="fa-solid fa-flask-vial"></i> CTMS</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#workflow">Workflow</a>
+    <a href="#roles">Roles</a>
+  </div>
+  <div class="nav-btns">
+    <a href="login.html" class="btn btn-outline-white">Staff Login</a>
+    <a href="login.html" class="btn btn-white">Participant Portal</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fa-solid fa-shield-halved"></i> &nbsp;FDA 21 CFR Part 11 Compliant</div>
+    <h1>Clinical Trial Management System</h1>
+    <p>A comprehensive platform to manage clinical trials from study setup to completion — participants, eCRF, safety monitoring, and regulatory documents in one place.</p>
+    <div class="hero-btns">
+      <a href="login.html" class="btn-hero-primary"><i class="fa-solid fa-right-to-bracket"></i> &nbsp;Staff Login</a>
+      <a href="login.html" class="btn-hero-outline"><i class="fa-solid fa-user"></i> &nbsp;Participant Portal</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="num">125</div><div class="lbl">Active Trials</div></div>
+  <div class="stat-item"><div class="num">4,560</div><div class="lbl">Enrolled Participants</div></div>
+  <div class="stat-item"><div class="num">23</div><div class="lbl">Safety Reports</div></div>
+  <div class="stat-item"><div class="num">78</div><div class="lbl">Research Sites</div></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>What is CTMS?</h2>
+  <p class="section-sub">A centralized system for managing all aspects of clinical research operations</p>
+  <div class="features-grid" style="max-width:900px;margin:0 auto;">
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#ebf5fb;color:#2980b9;"><i class="fa-solid fa-database"></i></div>
+      <h3>Centralized Data</h3>
+      <p>All trial data, participant records, and documents stored securely in one platform.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#eafaf1;color:#27ae60;"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>Regulatory Compliance</h3>
+      <p>Built to meet ICH-GCP, FDA 21 CFR Part 11, and HIPAA requirements.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#fef9e7;color:#f39c12;"><i class="fa-solid fa-chart-line"></i></div>
+      <h3>Real-time Analytics</h3>
+      <p>Live dashboards for enrollment progress, safety events, and study milestones.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" style="background:#f0f4f8;">
+  <h2>Key Features</h2>
+  <p class="section-sub">Everything you need to run a successful clinical trial</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#ebf5fb;color:#2980b9;"><i class="fa-solid fa-clipboard-list"></i></div>
+      <h3>Study Management</h3>
+      <p>Create and manage trials across all phases with protocol versioning.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#eafaf1;color:#27ae60;"><i class="fa-solid fa-users"></i></div>
+      <h3>Participant Enrollment</h3>
+      <p>Screen, consent, and enroll participants with eligibility checks.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#f4ecf7;color:#8e44ad;"><i class="fa-solid fa-file-medical"></i></div>
+      <h3>eCRF Data Capture</h3>
+      <p>Electronic case report forms with validation and e-signature support.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#fdedec;color:#e74c3c;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+      <h3>Adverse Event Reporting</h3>
+      <p>Capture, classify, and escalate adverse events with automatic SAE alerts.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#fef9e7;color:#f39c12;"><i class="fa-solid fa-pills"></i></div>
+      <h3>Drug Accountability</h3>
+      <p>Track investigational product receipt, dispensing, and returns.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#eafaf1;color:#27ae60;"><i class="fa-solid fa-folder-open"></i></div>
+      <h3>Regulatory Documents</h3>
+      <p>Manage TMF documents with version control and approval workflows.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section id="workflow">
+  <h2>System Workflow</h2>
+  <p class="section-sub">From study creation to completion</p>
+  <div class="flow-steps">
+    <div class="flow-step"><div class="circle"><i class="fa-solid fa-flask"></i></div><p>Create Study</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="circle"><i class="fa-solid fa-user-plus"></i></div><p>Recruit Participants</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="circle"><i class="fa-solid fa-file-signature"></i></div><p>Consent & Enroll</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="circle"><i class="fa-solid fa-calendar-check"></i></div><p>Schedule Visits</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="circle"><i class="fa-solid fa-file-medical"></i></div><p>eCRF Data Entry</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="circle"><i class="fa-solid fa-triangle-exclamation"></i></div><p>Safety Monitoring</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="circle"><i class="fa-solid fa-chart-bar"></i></div><p>Reports</p></div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section id="roles" style="background:#f0f4f8;">
+  <h2>User Roles</h2>
+  <p class="section-sub">Role-based access for every stakeholder</p>
+  <div class="roles-grid" style="max-width:900px;margin:0 auto;">
+    <div class="role-card"><i class="fa-solid fa-user-shield"></i><h4>Admin</h4></div>
+    <div class="role-card"><i class="fa-solid fa-building"></i><h4>Sponsor</h4></div>
+    <div class="role-card"><i class="fa-solid fa-user-doctor"></i><h4>Principal Investigator</h4></div>
+    <div class="role-card"><i class="fa-solid fa-stethoscope"></i><h4>Sub-Investigator</h4></div>
+    <div class="role-card"><i class="fa-solid fa-clipboard-user"></i><h4>Site Coordinator</h4></div>
+    <div class="role-card"><i class="fa-solid fa-database"></i><h4>Data Manager</h4></div>
+    <div class="role-card"><i class="fa-solid fa-person"></i><h4>Participant</h4></div>
+  </div>
+</section>
+
+<footer>
+  <strong>CTMS</strong> – Clinical Trial Management System &nbsp;|&nbsp; &copy; 2025 &nbsp;|&nbsp;
+  <a href="login.html" style="color:#3498db;">Login to System</a>
+</footer>
+
+</body>
+</html>

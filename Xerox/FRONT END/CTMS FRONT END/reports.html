@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – Reports & Analytics</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .content { padding: 14px 18px; }
+  .stat-grid { gap: 10px; margin-bottom: 14px; }
+  .stat-card { padding: 10px 12px; gap: 10px; }
+  .stat-icon { width: 34px; height: 34px; font-size: 0.95rem; border-radius: 7px; }
+  .stat-val { font-size: 1.05rem; }
+  .stat-label { font-size: 0.7rem; margin-top: 2px; }
+  .chart-grid { gap: 12px; margin-bottom: 12px; }
+  .chart-box-sm { padding: 10px 12px; }
+  .chart-box-sm h3 { font-size: 0.76rem; margin-bottom: 6px; }
+  .card { padding: 12px 14px; margin-bottom: 12px; }
+  .card-header { margin-bottom: 10px; }
+  .card-header h3 { font-size: 0.82rem; }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>Clinical Trial Management</span></div>
+  <nav>
+    <a href="dashboard.html"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+    <a href="studies.html"><i class="fa-solid fa-clipboard-list"></i><span>Studies</span></a>
+    <a href="participants.html"><i class="fa-solid fa-users"></i><span>Participants</span></a>
+    <a href="ecrf.html"><i class="fa-solid fa-file-medical"></i><span>eCRF</span></a>
+    <a href="adverse-events.html"><i class="fa-solid fa-triangle-exclamation"></i><span>Adverse Events</span></a>
+    <a href="documents.html"><i class="fa-solid fa-folder-open"></i><span>Regulatory Docs</span></a>
+    <a href="reports.html" class="active"><i class="fa-solid fa-chart-bar"></i><span>Reports</span></a>
+    <a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+  </nav>
+  <div class="sidebar-footer"><i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> Logged In User<br><span class="role-label" style="font-size:0.72rem;opacity:0.6;"></span><br><a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1><i class="fa-solid fa-chart-bar" style="color:#2980b9;"></i> &nbsp;Reports &amp; Analytics</h1>
+    <div class="topbar-right">
+      <select class="form-control" style="width:160px;">
+        <option>All Studies</option>
+        <option>CT-2025-001</option>
+        <option>CT-2025-002</option>
+        <option>CT-2025-003</option>
+      </select>
+      <button class="btn btn-outline"><i class="fa-solid fa-download"></i> Export PDF</button>
+      <div class="avatar">AD</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- KPI CARDS -->
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-icon green"><i class="fa-solid fa-percent"></i></div><div><div class="stat-val">76%</div><div class="stat-label">Enrollment Rate</div></div></div>
+      <div class="stat-card"><div class="stat-icon blue"><i class="fa-solid fa-flag-checkered"></i></div><div><div class="stat-val">89%</div><div class="stat-label">Protocol Compliance</div></div></div>
+      <div class="stat-card"><div class="stat-icon orange"><i class="fa-solid fa-question-circle"></i></div><div><div class="stat-val">34</div><div class="stat-label">Open Queries</div></div></div>
+      <div class="stat-card"><div class="stat-icon red"><i class="fa-solid fa-file-circle-exclamation"></i></div><div><div class="stat-val">18</div><div class="stat-label">Pending Documents</div></div></div>
+      <div class="stat-card"><div class="stat-icon purple"><i class="fa-solid fa-calendar-check"></i></div><div><div class="stat-val">94%</div><div class="stat-label">Visit Completion</div></div></div>
+    </div>
+
+    <!-- CHARTS ROW 1 -->
+    <div class="chart-grid">
+      <div class="chart-box chart-box-sm">
+        <h3>Enrollment Trend (2025)</h3>
+        <canvas id="enrollTrend" height="110"></canvas>
+      </div>
+      <div class="chart-box chart-box-sm">
+        <h3>Participant Status Distribution</h3>
+        <div style="width:160px;height:160px;margin:0 auto;">
+          <canvas id="participantStatus"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHARTS ROW 2 -->
+    <div class="chart-grid">
+      <div class="chart-box chart-box-sm">
+        <h3>Safety Events by Month</h3>
+        <canvas id="safetyChart" height="110"></canvas>
+      </div>
+      <div class="chart-box chart-box-sm">
+        <h3>Study Progress by Phase</h3>
+        <canvas id="studyProgress" height="110"></canvas>
+      </div>
+    </div>
+
+    <!-- CHARTS ROW 3 -->
+    <div class="chart-grid">
+      <div class="chart-box chart-box-sm">
+        <h3>Site Enrollment Performance</h3>
+        <canvas id="siteChart" height="110"></canvas>
+      </div>
+      <div class="chart-box chart-box-sm">
+        <h3>eCRF Completion Rate</h3>
+        <div style="width:160px;height:160px;margin:0 auto;">
+          <canvas id="ecrfChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORT LINKS -->
+    <div class="card">
+      <div class="card-header"><h3>Available Reports</h3></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;">
+        <div style="border:1px solid #dce1e7;border-radius:7px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;background:#ebf5fb;border-radius:7px;display:flex;align-items:center;justify-content:center;color:#2980b9;font-size:0.85rem;"><i class="fa-solid fa-users"></i></div>
+          <div><p style="font-size:0.8rem;font-weight:600;">Enrollment Report</p><p style="font-size:0.7rem;color:#7f8c8d;">Jul 14</p></div>
+          <button class="btn btn-outline btn-sm" style="margin-left:auto;padding:3px 8px;"><i class="fa-solid fa-download"></i></button>
+        </div>
+        <div style="border:1px solid #dce1e7;border-radius:7px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;background:#fdedec;border-radius:7px;display:flex;align-items:center;justify-content:center;color:#e74c3c;font-size:0.85rem;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div><p style="font-size:0.8rem;font-weight:600;">Safety Report</p><p style="font-size:0.7rem;color:#7f8c8d;">Jul 12</p></div>
+          <button class="btn btn-outline btn-sm" style="margin-left:auto;padding:3px 8px;"><i class="fa-solid fa-download"></i></button>
+        </div>
+        <div style="border:1px solid #dce1e7;border-radius:7px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;background:#eafaf1;border-radius:7px;display:flex;align-items:center;justify-content:center;color:#27ae60;font-size:0.85rem;"><i class="fa-solid fa-clipboard-check"></i></div>
+          <div><p style="font-size:0.8rem;font-weight:600;">Protocol Compliance</p><p style="font-size:0.7rem;color:#7f8c8d;">Jul 10</p></div>
+          <button class="btn btn-outline btn-sm" style="margin-left:auto;padding:3px 8px;"><i class="fa-solid fa-download"></i></button>
+        </div>
+        <div style="border:1px solid #dce1e7;border-radius:7px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;background:#f4ecf7;border-radius:7px;display:flex;align-items:center;justify-content:center;color:#8e44ad;font-size:0.85rem;"><i class="fa-solid fa-pills"></i></div>
+          <div><p style="font-size:0.8rem;font-weight:600;">Drug Accountability</p><p style="font-size:0.7rem;color:#7f8c8d;">Jul 13</p></div>
+          <button class="btn btn-outline btn-sm" style="margin-left:auto;padding:3px 8px;"><i class="fa-solid fa-download"></i></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/script.js"></script>
+<script>
+new Chart(document.getElementById('enrollTrend'), {
+  type:'line',
+  data:{
+    labels:['Jan','Feb','Mar','Apr','May','Jun','Jul'],
+    datasets:[
+      {label:'CT-2025-001',data:[10,18,28,38,52,68,85],borderColor:'#2980b9',tension:0.4,fill:false},
+      {label:'CT-2025-002',data:[0,5,15,28,40,52,62],borderColor:'#27ae60',tension:0.4,fill:false},
+      {label:'CT-2025-003',data:[0,0,8,18,28,38,45],borderColor:'#f39c12',tension:0.4,fill:false}
+    ]
+  },
+  options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{y:{beginAtZero:true,ticks:{font:{size:9}}},x:{ticks:{font:{size:9}}}}}
+});
+
+new Chart(document.getElementById('participantStatus'), {
+  type:'doughnut',
+  data:{
+    labels:['Enrolled','Screening','Completed','Withdrawn','Screen Failure'],
+    datasets:[{data:[412,68,20,8,34],backgroundColor:['#27ae60','#8e44ad','#2980b9','#e74c3c','#f39c12']}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:8,font:{size:9}}}}}
+});
+
+new Chart(document.getElementById('safetyChart'), {
+  type:'bar',
+  data:{
+    labels:['Jan','Feb','Mar','Apr','May','Jun','Jul'],
+    datasets:[
+      {label:'Mild',data:[3,4,2,5,3,4,6],backgroundColor:'#f39c12'},
+      {label:'Moderate',data:[1,2,1,2,3,2,3],backgroundColor:'#e67e22'},
+      {label:'Severe/SAE',data:[0,0,1,0,1,0,2],backgroundColor:'#e74c3c'}
+    ]
+  },
+  options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{x:{stacked:true,ticks:{font:{size:9}}},y:{stacked:true,beginAtZero:true,ticks:{font:{size:9}}}}}
+});
+
+new Chart(document.getElementById('studyProgress'), {
+  type:'bar',
+  data:{
+    labels:['CT-2025-001','CT-2025-002','CT-2025-003','CT-2025-004'],
+    datasets:[
+      {label:'Enrolled',data:[85,62,45,30],backgroundColor:'#2980b9'},
+      {label:'Target',data:[100,80,60,50],backgroundColor:'#ebf5fb'}
+    ]
+  },
+  options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{y:{beginAtZero:true,ticks:{font:{size:9}}},x:{ticks:{font:{size:9}}}}}
+});
+
+new Chart(document.getElementById('siteChart'), {
+  type:'bar',
+  data:{
+    labels:['SITE-01','SITE-02','SITE-03','SITE-04'],
+    datasets:[{label:'Enrolled',data:[120,98,75,42],backgroundColor:['#27ae60','#2980b9','#f39c12','#8e44ad']}]
+  },
+  options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{font:{size:9}}},y:{ticks:{font:{size:9}}}}}
+});
+
+new Chart(document.getElementById('ecrfChart'), {
+  type:'doughnut',
+  data:{
+    labels:['Submitted','Draft','Not Started'],
+    datasets:[{data:[78,14,8],backgroundColor:['#27ae60','#f39c12','#e74c3c']}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:8,font:{size:9}}}}}
+});
+</script>
+</body>
+</html>

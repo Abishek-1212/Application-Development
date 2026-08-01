@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – Data Manager Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>Data Manager Portal</span></div>
+  <nav>
+    <a href="dashboard-datamanager.html" class="active"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+    <a href="ecrf.html"><i class="fa-solid fa-file-medical"></i><span>eCRF Review</span></a>
+    <a href="participants.html"><i class="fa-solid fa-users"></i><span>Participants</span></a>
+    <a href="adverse-events.html"><i class="fa-solid fa-triangle-exclamation"></i><span>Adverse Events</span></a>
+    <a href="reports.html"><i class="fa-solid fa-chart-bar"></i><span>Reports</span></a>
+    <a href="documents.html"><i class="fa-solid fa-folder-open"></i><span>Documents</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> Mr. Ravi Kumar<br>
+    <span style="font-size:0.72rem;opacity:0.6;">Data Manager</span><br>
+    <a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1><i class="fa-solid fa-database" style="color:#2980b9;"></i> &nbsp;Data Manager Dashboard</h1>
+    <div class="topbar-right">
+      <span style="font-size:0.82rem;color:#7f8c8d;">Data Cleaning Mode</span>
+      <div style="position:relative;cursor:pointer;">
+        <i class="fa-solid fa-bell" style="font-size:1.1rem;color:#7f8c8d;"></i>
+        <div class="badge-alert" style="position:absolute;top:-6px;right:-6px;">8</div>
+      </div>
+      <div class="avatar" style="background:#16a085;">RK</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-circle-info"></i>
+      <span><strong>34 open queries</strong> need resolution before database lock. Deadline: <strong>Jul 31, 2025</strong></span>
+    </div>
+
+    <div class="stat-grid">
+      <a href="ecrf.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon blue"><i class="fa-solid fa-file-medical"></i></div>
+        <div><div class="stat-val">248</div><div class="stat-label">Total eCRFs</div></div>
+      </a>
+      <a href="ecrf.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon green"><i class="fa-solid fa-circle-check"></i></div>
+        <div><div class="stat-val">198</div><div class="stat-label">Verified</div></div>
+      </a>
+      <a href="ecrf.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon orange"><i class="fa-solid fa-question-circle"></i></div>
+        <div><div class="stat-val">34</div><div class="stat-label">Open Queries</div></div>
+      </a>
+      <a href="ecrf.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon red"><i class="fa-solid fa-circle-xmark"></i></div>
+        <div><div class="stat-val">16</div><div class="stat-label">Missing Data</div></div>
+      </a>
+      <a href="reports.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon purple"><i class="fa-solid fa-percent"></i></div>
+        <div><div class="stat-val">94%</div><div class="stat-label">Data Completeness</div></div>
+      </a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
+
+      <!-- OPEN QUERIES -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-question-circle" style="color:#f39c12;"></i> &nbsp;Open Queries</h3>
+          <span class="badge badge-pending">34 Open</span>
+        </div>
+        <table>
+          <thead><tr><th>Query ID</th><th>Subject</th><th>Field</th><th>Raised By</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr style="cursor:pointer;" onclick="location.href='ecrf.html'"><td>QRY-041</td><td>SUB-001</td><td>Blood Pressure V3</td><td>System</td><td><button class="btn btn-warning btn-sm" onclick="event.stopPropagation()">Resolve</button></td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='ecrf.html'"><td>QRY-040</td><td>SUB-008</td><td>Weight missing V2</td><td>Monitor</td><td><button class="btn btn-warning btn-sm" onclick="event.stopPropagation()">Resolve</button></td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='ecrf.html'"><td>QRY-039</td><td>SUB-015</td><td>Lab date mismatch</td><td>System</td><td><button class="btn btn-warning btn-sm" onclick="event.stopPropagation()">Resolve</button></td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='ecrf.html'"><td>QRY-038</td><td>SUB-022</td><td>AE onset date</td><td>Monitor</td><td><button class="btn btn-warning btn-sm" onclick="event.stopPropagation()">Resolve</button></td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='ecrf.html'"><td>QRY-037</td><td>SUB-031</td><td>Consent date error</td><td>System</td><td><button class="btn btn-warning btn-sm" onclick="event.stopPropagation()">Resolve</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ECRF STATUS -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-file-medical" style="color:#2980b9;"></i> &nbsp;eCRF Review Status</h3>
+          <a href="ecrf.html" style="font-size:0.8rem;color:#2980b9;">Review All</a>
+        </div>
+        <table>
+          <thead><tr><th>Subject</th><th>Visit</th><th>Submitted</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>SUB-001</td><td>V4 EOS</td><td>Jul 14</td><td><span class="badge badge-pending">Pending</span></td><td><a href="ecrf.html" class="btn btn-outline btn-sm">Review</a></td></tr>
+            <tr><td>SUB-005</td><td>V3 Wk12</td><td>Jul 13</td><td><span class="badge badge-pending">Pending</span></td><td><a href="ecrf.html" class="btn btn-outline btn-sm">Review</a></td></tr>
+            <tr><td>SUB-012</td><td>V2 Wk4</td><td>Jul 12</td><td><span class="badge badge-approved">Verified</span></td><td><a href="ecrf.html" class="btn btn-outline btn-sm">View</a></td></tr>
+            <tr><td>SUB-019</td><td>V3 Wk12</td><td>Jul 10</td><td><span class="badge badge-severe" style="background:#fdedec;color:#e74c3c;">Query</span></td><td><a href="ecrf.html" class="btn btn-warning btn-sm">Fix</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- MISSING DATA -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-circle-xmark" style="color:#e74c3c;"></i> &nbsp;Missing Data Fields</h3>
+          <span class="badge badge-severe" style="background:#fdedec;color:#e74c3c;">16 Missing</span>
+        </div>
+        <table>
+          <thead><tr><th>Subject</th><th>Visit</th><th>Missing Field</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>SUB-003</td><td>V2</td><td>Heart Rate</td><td><button class="btn btn-outline btn-sm" onclick="location.href='ecrf.html'">Query</button></td></tr>
+            <tr><td>SUB-007</td><td>V1</td><td>Lab Report Date</td><td><button class="btn btn-outline btn-sm" onclick="location.href='ecrf.html'">Query</button></td></tr>
+            <tr><td>SUB-011</td><td>V3</td><td>SpO2</td><td><button class="btn btn-outline btn-sm" onclick="location.href='ecrf.html'">Query</button></td></tr>
+            <tr><td>SUB-024</td><td>V2</td><td>BMI</td><td><button class="btn btn-outline btn-sm" onclick="location.href='ecrf.html'">Query</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- DATA COMPLETENESS CHART -->
+      <div class="chart-box" style="margin:0;">
+        <h3>Data Completeness by Study</h3>
+        <canvas id="completenessChart" height="180"></canvas>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/script.js"></script>
+<script>
+new Chart(document.getElementById('completenessChart'), {
+  type: 'bar',
+  data: {
+    labels: ['CT-2025-001','CT-2025-002','CT-2025-003','CT-2025-004'],
+    datasets: [{
+      label: 'Completeness %',
+      data: [96, 91, 88, 78],
+      backgroundColor: ['#27ae60','#2980b9','#f39c12','#e74c3c']
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, max: 100 } }
+  }
+});
+</script>
+</body>
+</html>

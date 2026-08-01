@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – Participant Details</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>Clinical Trial Management</span></div>
+  <nav>
+    <a href="dashboard.html"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+    <a href="studies.html"><i class="fa-solid fa-clipboard-list"></i><span>Studies</span></a>
+    <a href="participants.html" class="active"><i class="fa-solid fa-users"></i><span>Participants</span></a>
+    <a href="ecrf.html"><i class="fa-solid fa-file-medical"></i><span>eCRF</span></a>
+    <a href="adverse-events.html"><i class="fa-solid fa-triangle-exclamation"></i><span>Adverse Events</span></a>
+    <a href="documents.html"><i class="fa-solid fa-folder-open"></i><span>Regulatory Docs</span></a>
+    <a href="reports.html"><i class="fa-solid fa-chart-bar"></i><span>Reports</span></a>
+    <a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+  </nav>
+  <div class="sidebar-footer"><i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> Logged In User<br><span class="role-label" style="font-size:0.72rem;opacity:0.6;"></span><br><a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1>
+      <a href="participants.html" style="color:#7f8c8d;font-size:0.85rem;font-weight:400;"><i class="fa-solid fa-arrow-left"></i> Participants</a>
+      &nbsp;/&nbsp; SUB-001
+    </h1>
+    <div class="topbar-right">
+      <a href="ecrf.html" class="btn btn-primary"><i class="fa-solid fa-file-medical"></i> Open eCRF</a>
+      <a href="adverse-events.html" class="btn btn-warning"><i class="fa-solid fa-triangle-exclamation"></i> Report AE</a>
+      <div class="avatar">AD</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- PARTICIPANT HEADER -->
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:22px;margin-bottom:22px;">
+      <div class="card" style="margin:0;min-width:260px;">
+        <div style="text-align:center;padding:10px 0;">
+          <div style="width:72px;height:72px;border-radius:50%;background:#ebf5fb;color:#2980b9;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 12px;">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <h3 style="font-size:1.1rem;font-weight:700;">SUB-001</h3>
+          <span class="badge badge-enrolled" style="margin-top:6px;">Enrolled</span>
+        </div>
+        <div style="font-size:0.82rem;margin-top:16px;">
+          <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f0f4f8;"><span style="color:#7f8c8d;">Study</span><span>CT-2025-001</span></div>
+          <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f0f4f8;"><span style="color:#7f8c8d;">Site</span><span>SITE-01</span></div>
+          <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f0f4f8;"><span style="color:#7f8c8d;">Age / Gender</span><span>45 / Male</span></div>
+          <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f0f4f8;"><span style="color:#7f8c8d;">Consent Date</span><span>Jan 18, 2025</span></div>
+          <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f0f4f8;"><span style="color:#7f8c8d;">Enrolled</span><span>Jan 20, 2025</span></div>
+          <div style="display:flex;justify-content:space-between;padding:7px 0;"><span style="color:#7f8c8d;">Coordinator</span><span>Ms. Priya S.</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="stat-grid" style="margin-bottom:16px;">
+          <div class="stat-card"><div class="stat-icon green"><i class="fa-solid fa-calendar-check"></i></div><div><div class="stat-val">4</div><div class="stat-label">Visits Completed</div></div></div>
+          <div class="stat-card"><div class="stat-icon blue"><i class="fa-solid fa-calendar"></i></div><div><div class="stat-val">1</div><div class="stat-label">Upcoming Visit</div></div></div>
+          <div class="stat-card"><div class="stat-icon orange"><i class="fa-solid fa-file-medical"></i></div><div><div class="stat-val">3</div><div class="stat-label">eCRFs Submitted</div></div></div>
+          <div class="stat-card"><div class="stat-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div><div><div class="stat-val">1</div><div class="stat-label">Adverse Events</div></div></div>
+        </div>
+        <div class="card" style="margin:0;">
+          <div class="card-header"><h3>Visit Progress</h3></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.82rem;"><span>Overall Completion</span><span style="font-weight:600;">80%</span></div>
+          <div class="progress" style="height:12px;"><div class="progress-bar" style="width:80%;"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tab-group">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="ptab-visits">Visit Schedule</button>
+        <button class="tab-btn" data-tab="ptab-ecrf">eCRF Forms</button>
+        <button class="tab-btn" data-tab="ptab-ae">Adverse Events</button>
+        <button class="tab-btn" data-tab="ptab-docs">Documents</button>
+      </div>
+
+      <!-- VISITS -->
+      <div class="tab-content active" id="ptab-visits">
+        <div class="visit-grid">
+          <div class="visit-card completed">
+            <h4>V0 – Screening</h4>
+            <p>Jan 15, 2025</p>
+            <p style="margin-top:8px;"><span class="badge badge-active">Completed</span></p>
+            <a href="ecrf.html" class="btn btn-outline btn-sm" style="margin-top:10px;width:100%;display:block;text-align:center;">View eCRF</a>
+          </div>
+          <div class="visit-card completed">
+            <h4>V1 – Baseline</h4>
+            <p>Jan 20, 2025</p>
+            <p style="margin-top:8px;"><span class="badge badge-active">Completed</span></p>
+            <a href="ecrf.html" class="btn btn-outline btn-sm" style="margin-top:10px;width:100%;display:block;text-align:center;">View eCRF</a>
+          </div>
+          <div class="visit-card completed">
+            <h4>V2 – Week 4</h4>
+            <p>Feb 17, 2025</p>
+            <p style="margin-top:8px;"><span class="badge badge-active">Completed</span></p>
+            <a href="ecrf.html" class="btn btn-outline btn-sm" style="margin-top:10px;width:100%;display:block;text-align:center;">View eCRF</a>
+          </div>
+          <div class="visit-card completed">
+            <h4>V3 – Week 12</h4>
+            <p>Apr 14, 2025</p>
+            <p style="margin-top:8px;"><span class="badge badge-active">Completed</span></p>
+            <a href="ecrf.html" class="btn btn-outline btn-sm" style="margin-top:10px;width:100%;display:block;text-align:center;">View eCRF</a>
+          </div>
+          <div class="visit-card upcoming">
+            <h4>V4 – End of Study</h4>
+            <p>Jul 20, 2025</p>
+            <p style="margin-top:8px;"><span class="badge badge-setup">Upcoming</span></p>
+            <a href="ecrf.html" class="btn btn-primary btn-sm" style="margin-top:10px;width:100%;display:block;text-align:center;">Open eCRF</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ECRF -->
+      <div class="tab-content" id="ptab-ecrf">
+        <div class="card">
+          <div class="card-header"><h3>eCRF Submissions</h3><a href="ecrf.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> New eCRF</a></div>
+          <table>
+            <thead><tr><th>Form</th><th>Visit</th><th>Submitted By</th><th>Date</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr style="cursor:pointer;" onclick="location.href='ecrf.html'"><td>Screening Form</td><td>V0</td><td>Dr. Sarah Johnson</td><td>Jan 15, 2025</td><td><span class="badge badge-approved">Submitted</span></td></tr>
+              <tr style="cursor:pointer;" onclick="location.href='ecrf.html'"><td>Baseline eCRF</td><td>V1</td><td>Dr. Sarah Johnson</td><td>Jan 20, 2025</td><td><span class="badge badge-approved">Submitted</span></td></tr>
+              <tr style="cursor:pointer;" onclick="location.href='ecrf.html'"><td>Follow-up eCRF</td><td>V2</td><td>Dr. Sarah Johnson</td><td>Feb 17, 2025</td><td><span class="badge badge-approved">Submitted</span></td></tr>
+              <tr style="cursor:pointer;" onclick="location.href='ecrf.html'"><td>Follow-up eCRF</td><td>V3</td><td>Dr. Sarah Johnson</td><td>Apr 14, 2025</td><td><span class="badge badge-pending">Draft</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- AE -->
+      <div class="tab-content" id="ptab-ae">
+        <div class="card">
+          <div class="card-header"><h3>Adverse Events</h3><a href="adverse-events.html" class="btn btn-warning btn-sm"><i class="fa-solid fa-plus"></i> Report AE</a></div>
+          <table>
+            <thead><tr><th>AE ID</th><th>Description</th><th>Severity</th><th>Onset Date</th><th>Outcome</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr style="cursor:pointer;" onclick="location.href='adverse-events.html'">
+                <td>AE-001</td>
+                <td>Mild headache and dizziness</td>
+                <td><span class="badge badge-mild">Mild</span></td>
+                <td>Feb 20, 2025</td>
+                <td>Resolved</td>
+                <td><span class="badge badge-approved">Closed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- DOCS -->
+      <div class="tab-content" id="ptab-docs">
+        <div class="card">
+          <div class="card-header"><h3>Participant Documents</h3><button class="btn btn-outline btn-sm"><i class="fa-solid fa-upload"></i> Upload</button></div>
+          <table>
+            <thead><tr><th>Document</th><th>Type</th><th>Date</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Signed Consent Form</td><td>Consent</td><td>Jan 18, 2025</td><td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i></button></td></tr>
+              <tr><td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;Screening Labs</td><td>Lab Report</td><td>Jan 15, 2025</td><td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i></button></td></tr>
+              <tr><td><i class="fa-solid fa-file-pdf" style="color:#e74c3c;"></i> &nbsp;ECG Report</td><td>Diagnostic</td><td>Jan 15, 2025</td><td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-download"></i></button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

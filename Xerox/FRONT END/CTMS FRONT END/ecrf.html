@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – eCRF</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .required::after { content:' *'; color:#e74c3c; }
+  .sig-box {
+    border:2px dashed #dce1e7; border-radius:8px; height:80px;
+    display:flex; align-items:center; justify-content:center;
+    color:#bdc3c7; font-size:0.85rem; cursor:pointer;
+  }
+  .sig-box:hover { border-color:#2980b9; color:#2980b9; }
+  .form-status-bar {
+    background:#fff; border-radius:10px; padding:16px 22px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.08); margin-bottom:22px;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  }
+  .form-status-bar .info { display:flex; gap:24px; flex-wrap:wrap; }
+  .form-status-bar .info span { font-size:0.82rem; color:#7f8c8d; }
+  .form-status-bar .info strong { color:#2c3e50; }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>Clinical Trial Management</span></div>
+  <nav>
+    <a href="dashboard.html"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+    <a href="studies.html"><i class="fa-solid fa-clipboard-list"></i><span>Studies</span></a>
+    <a href="participants.html"><i class="fa-solid fa-users"></i><span>Participants</span></a>
+    <a href="ecrf.html" class="active"><i class="fa-solid fa-file-medical"></i><span>eCRF</span></a>
+    <a href="adverse-events.html"><i class="fa-solid fa-triangle-exclamation"></i><span>Adverse Events</span></a>
+    <a href="documents.html"><i class="fa-solid fa-folder-open"></i><span>Regulatory Docs</span></a>
+    <a href="reports.html"><i class="fa-solid fa-chart-bar"></i><span>Reports</span></a>
+    <a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+  </nav>
+  <div class="sidebar-footer"><i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> Logged In User<br><span class="role-label" style="font-size:0.72rem;opacity:0.6;"></span><br><a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1>
+      <a href="participant-details.html" style="color:#7f8c8d;font-size:0.85rem;font-weight:400;"><i class="fa-solid fa-arrow-left"></i> SUB-001</a>
+      &nbsp;/&nbsp; eCRF – Visit 4 (End of Study)
+    </h1>
+    <div class="topbar-right">
+      <span class="badge badge-pending">Draft</span>
+      <div class="avatar">AD</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- STATUS BAR -->
+    <div class="form-status-bar">
+      <div class="info">
+        <span>Subject: <strong>SUB-001</strong></span>
+        <span>Study: <strong>CT-2025-001</strong></span>
+        <span>Visit: <strong>V4 – End of Study</strong></span>
+        <span>Visit Date: <strong>Jul 20, 2025</strong></span>
+        <span>Site: <strong>SITE-01</strong></span>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <button class="btn btn-outline" onclick="saveDraft()"><i class="fa-solid fa-floppy-disk"></i> Save Draft</button>
+        <button class="btn btn-primary" onclick="submitForm()"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+      </div>
+    </div>
+
+    <div class="alert alert-warning">
+      <i class="fa-solid fa-circle-info"></i>
+      All fields marked <strong>*</strong> are required. Submitted forms cannot be edited without a query.
+    </div>
+
+    <!-- SECTION 1: VITALS -->
+    <div class="ecrf-section">
+      <h4><i class="fa-solid fa-heart-pulse"></i> &nbsp;Section 1 – Vital Signs</h4>
+      <div class="form-row-3">
+        <div class="form-group"><label class="required">Weight (kg)</label><input type="number" class="form-control" placeholder="70.5" value="72.3"></div>
+        <div class="form-group"><label class="required">Height (cm)</label><input type="number" class="form-control" placeholder="170" value="175"></div>
+        <div class="form-group"><label>BMI</label><input type="text" class="form-control" value="23.6" readonly style="background:#f7f9fc;"></div>
+      </div>
+      <div class="form-row-3">
+        <div class="form-group"><label class="required">Systolic BP (mmHg)</label><input type="number" class="form-control" placeholder="120" value="118"></div>
+        <div class="form-group"><label class="required">Diastolic BP (mmHg)</label><input type="number" class="form-control" placeholder="80" value="76"></div>
+        <div class="form-group"><label class="required">Heart Rate (bpm)</label><input type="number" class="form-control" placeholder="72" value="74"></div>
+      </div>
+      <div class="form-row-3">
+        <div class="form-group"><label class="required">Temperature (°C)</label><input type="number" step="0.1" class="form-control" placeholder="37.0" value="36.8"></div>
+        <div class="form-group"><label>Respiratory Rate</label><input type="number" class="form-control" placeholder="16" value="16"></div>
+        <div class="form-group"><label>SpO2 (%)</label><input type="number" class="form-control" placeholder="98" value="99"></div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: LAB RESULTS -->
+    <div class="ecrf-section">
+      <h4><i class="fa-solid fa-vial"></i> &nbsp;Section 2 – Laboratory Results</h4>
+      <div class="form-row">
+        <div class="form-group"><label>Hemoglobin (g/dL)</label><input type="number" step="0.1" class="form-control" placeholder="13.5" value="14.2"></div>
+        <div class="form-group"><label>WBC Count (×10³/μL)</label><input type="number" step="0.1" class="form-control" placeholder="7.0" value="6.8"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Platelet Count (×10³/μL)</label><input type="number" class="form-control" placeholder="250" value="265"></div>
+        <div class="form-group"><label>Creatinine (mg/dL)</label><input type="number" step="0.01" class="form-control" placeholder="0.9" value="0.95"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>ALT (U/L)</label><input type="number" class="form-control" placeholder="35" value="28"></div>
+        <div class="form-group"><label>AST (U/L)</label><input type="number" class="form-control" placeholder="30" value="25"></div>
+      </div>
+      <div class="form-group"><label>Lab Report Date</label><input type="date" class="form-control" value="2025-07-18"></div>
+    </div>
+
+    <!-- SECTION 3: EFFICACY -->
+    <div class="ecrf-section">
+      <h4><i class="fa-solid fa-chart-line"></i> &nbsp;Section 3 – Efficacy Assessment</h4>
+      <div class="form-row">
+        <div class="form-group"><label class="required">Primary Endpoint Status</label>
+          <select class="form-control">
+            <option>-- Select --</option>
+            <option selected>Achieved</option>
+            <option>Not Achieved</option>
+            <option>Indeterminate</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="required">NYHA Class</label>
+          <select class="form-control">
+            <option>Class I</option>
+            <option selected>Class II</option>
+            <option>Class III</option>
+            <option>Class IV</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>6-Minute Walk Test Distance (m)</label><input type="number" class="form-control" placeholder="450" value="480"></div>
+      <div class="form-group"><label>Investigator's Global Assessment</label>
+        <select class="form-control">
+          <option>-- Select --</option>
+          <option>Much Improved</option>
+          <option selected>Improved</option>
+          <option>No Change</option>
+          <option>Worsened</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- SECTION 4: DRUG ACCOUNTABILITY -->
+    <div class="ecrf-section">
+      <h4><i class="fa-solid fa-pills"></i> &nbsp;Section 4 – Investigational Product</h4>
+      <div class="form-row-3">
+        <div class="form-group"><label class="required">Dispensed (units)</label><input type="number" class="form-control" value="60"></div>
+        <div class="form-group"><label class="required">Returned (units)</label><input type="number" class="form-control" value="4"></div>
+        <div class="form-group"><label>Compliance (%)</label><input type="text" class="form-control" value="93.3%" readonly style="background:#f7f9fc;"></div>
+      </div>
+      <div class="form-group"><label>Dose Modifications?</label>
+        <select class="form-control">
+          <option>No</option>
+          <option>Yes – Dose Reduced</option>
+          <option>Yes – Dose Increased</option>
+          <option>Yes – Dose Interrupted</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- SECTION 5: ADVERSE EVENTS -->
+    <div class="ecrf-section">
+      <h4><i class="fa-solid fa-triangle-exclamation"></i> &nbsp;Section 5 – Adverse Events Since Last Visit</h4>
+      <div class="form-group"><label class="required">Any new AEs since last visit?</label>
+        <div style="display:flex;gap:20px;margin-top:8px;">
+          <label style="display:flex;align-items:center;gap:8px;font-weight:400;"><input type="radio" name="ae" value="no" checked> No</label>
+          <label style="display:flex;align-items:center;gap:8px;font-weight:400;"><input type="radio" name="ae" value="yes"> Yes</label>
+        </div>
+      </div>
+      <div class="form-group"><label>Comments</label><textarea class="form-control" rows="3" placeholder="Any additional observations..."></textarea></div>
+    </div>
+
+    <!-- SECTION 6: SIGNATURE -->
+    <div class="ecrf-section">
+      <h4><i class="fa-solid fa-signature"></i> &nbsp;Section 6 – Electronic Signature</h4>
+      <div class="form-row">
+        <div class="form-group"><label class="required">Investigator Name</label><input class="form-control" value="Dr. Sarah Johnson"></div>
+        <div class="form-group"><label class="required">Date &amp; Time</label><input type="datetime-local" class="form-control" value="2025-07-20T10:30"></div>
+      </div>
+      <div class="form-group"><label>Electronic Signature</label>
+        <div class="sig-box" onclick="this.innerHTML='<i class=\'fa-solid fa-check\' style=\'color:#27ae60;\'></i>&nbsp; Signed by Dr. Sarah Johnson – Jul 20, 2025 10:30'">
+          <i class="fa-solid fa-pen-nib"></i> &nbsp;Click to sign
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT BUTTONS -->
+    <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:8px;">
+      <button class="btn btn-outline" onclick="saveDraft()"><i class="fa-solid fa-floppy-disk"></i> Save Draft</button>
+      <button class="btn btn-success" onclick="submitForm()"><i class="fa-solid fa-paper-plane"></i> Submit eCRF</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+function saveDraft() {
+  const badge = document.querySelector('.badge-pending');
+  badge.textContent = 'Saved';
+  badge.className = 'badge badge-setup';
+  setTimeout(() => { badge.textContent = 'Draft'; badge.className = 'badge badge-pending'; }, 2000);
+}
+function submitForm() {
+  if (confirm('Submit this eCRF? This action cannot be undone without raising a query.')) {
+    window.location.href = 'participant-details.html';
+  }
+}
+</script>
+</body>
+</html>

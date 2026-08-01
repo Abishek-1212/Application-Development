@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – Adverse Events</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .modal-backdrop { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:200; align-items:center; justify-content:center; }
+  .modal { background:#fff; border-radius:12px; padding:32px; width:100%; max-width:580px; max-height:90vh; overflow-y:auto; }
+  .modal h3 { font-size:1rem; font-weight:700; margin-bottom:22px; }
+  .modal-footer { display:flex; gap:10px; justify-content:flex-end; margin-top:22px; }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>Clinical Trial Management</span></div>
+  <nav>
+    <a href="dashboard.html"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+    <a href="studies.html"><i class="fa-solid fa-clipboard-list"></i><span>Studies</span></a>
+    <a href="participants.html"><i class="fa-solid fa-users"></i><span>Participants</span></a>
+    <a href="ecrf.html"><i class="fa-solid fa-file-medical"></i><span>eCRF</span></a>
+    <a href="adverse-events.html" class="active"><i class="fa-solid fa-triangle-exclamation"></i><span>Adverse Events</span></a>
+    <a href="documents.html"><i class="fa-solid fa-folder-open"></i><span>Regulatory Docs</span></a>
+    <a href="reports.html"><i class="fa-solid fa-chart-bar"></i><span>Reports</span></a>
+    <a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+  </nav>
+  <div class="sidebar-footer"><i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> Logged In User<br><span class="role-label" style="font-size:0.72rem;opacity:0.6;"></span><br><a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1><i class="fa-solid fa-triangle-exclamation" style="color:#e74c3c;"></i> &nbsp;Adverse Event Reporting</h1>
+    <div class="topbar-right">
+      <button class="btn btn-danger" onclick="openModal('reportAEModal')"><i class="fa-solid fa-plus"></i> Report AE</button>
+      <div class="avatar">AD</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="alert alert-danger">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <span><strong>2 Serious Adverse Events (SAE)</strong> require immediate review and regulatory reporting within 24 hours.</span>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-icon blue"><i class="fa-solid fa-list"></i></div><div><div class="stat-val">48</div><div class="stat-label">Total AEs</div></div></div>
+      <div class="stat-card"><div class="stat-icon orange"><i class="fa-solid fa-circle-exclamation"></i></div><div><div class="stat-val">2</div><div class="stat-label">SAEs (Serious)</div></div></div>
+      <div class="stat-card"><div class="stat-icon red"><i class="fa-solid fa-clock"></i></div><div><div class="stat-val">5</div><div class="stat-label">Open / Ongoing</div></div></div>
+      <div class="stat-card"><div class="stat-icon green"><i class="fa-solid fa-check-circle"></i></div><div><div class="stat-val">41</div><div class="stat-label">Resolved</div></div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Adverse Event Log</h3>
+        <div style="display:flex;gap:10px;">
+          <select class="form-control" style="width:140px;">
+            <option>All Severity</option>
+            <option>Mild</option>
+            <option>Moderate</option>
+            <option>Severe</option>
+            <option>Life Threatening</option>
+          </select>
+          <select class="form-control" style="width:130px;">
+            <option>All Status</option>
+            <option>Open</option>
+            <option>Resolved</option>
+            <option>SAE</option>
+          </select>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>AE ID</th><th>Participant</th><th>Study</th><th>Description</th><th>Severity</th><th>Onset Date</th><th>Relationship</th><th>Outcome</th><th>Status</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr style="background:#fff5f5;cursor:pointer;" onclick="location.href='participant-details.html'">
+            <td><strong>AE-048</strong></td><td>SUB-019</td><td>CT-2025-001</td>
+            <td>Acute myocardial infarction</td>
+            <td><span class="badge badge-severe">SAE</span></td>
+            <td>Jul 12, 2025</td><td>Possibly Related</td><td>Hospitalized</td>
+            <td><span class="badge badge-pending">Open</span></td>
+            <td><button class="btn btn-danger btn-sm" onclick="event.stopPropagation();openModal('reportAEModal')">Review</button></td>
+          </tr>
+          <tr style="background:#fff5f5;cursor:pointer;" onclick="location.href='participant-details.html'">
+            <td><strong>AE-047</strong></td><td>SUB-031</td><td>CT-2025-002</td>
+            <td>Severe allergic reaction</td>
+            <td><span class="badge badge-severe">SAE</span></td>
+            <td>Jul 10, 2025</td><td>Probably Related</td><td>Recovered</td>
+            <td><span class="badge badge-pending">Open</span></td>
+            <td><button class="btn btn-danger btn-sm" onclick="event.stopPropagation();openModal('reportAEModal')">Review</button></td>
+          </tr>
+          <tr style="cursor:pointer;" onclick="location.href='participant-details.html'">
+            <td><strong>AE-046</strong></td><td>SUB-042</td><td>CT-2025-001</td>
+            <td>Nausea and vomiting</td>
+            <td><span class="badge badge-moderate">Moderate</span></td>
+            <td>Jul 8, 2025</td><td>Possibly Related</td><td>Resolved</td>
+            <td><span class="badge badge-approved">Closed</span></td>
+            <td><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();location.href='participant-details.html'"><i class="fa-solid fa-eye"></i></button></td>
+          </tr>
+          <tr style="cursor:pointer;" onclick="location.href='participant-details.html'">
+            <td><strong>AE-045</strong></td><td>SUB-015</td><td>CT-2025-003</td>
+            <td>Mild headache</td>
+            <td><span class="badge badge-mild">Mild</span></td>
+            <td>Jul 5, 2025</td><td>Unlikely Related</td><td>Resolved</td>
+            <td><span class="badge badge-approved">Closed</span></td>
+            <td><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();location.href='participant-details.html'"><i class="fa-solid fa-eye"></i></button></td>
+          </tr>
+          <tr style="cursor:pointer;" onclick="location.href='participant-details.html'">
+            <td><strong>AE-044</strong></td><td>SUB-008</td><td>CT-2025-001</td>
+            <td>Fatigue and weakness</td>
+            <td><span class="badge badge-mild">Mild</span></td>
+            <td>Jul 2, 2025</td><td>Not Related</td><td>Ongoing</td>
+            <td><span class="badge badge-pending">Open</span></td>
+            <td><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();location.href='participant-details.html'"><i class="fa-solid fa-eye"></i></button></td>
+          </tr>
+          <tr style="cursor:pointer;" onclick="location.href='participant-details.html'">
+            <td><strong>AE-043</strong></td><td>SUB-001</td><td>CT-2025-001</td>
+            <td>Mild headache and dizziness</td>
+            <td><span class="badge badge-mild">Mild</span></td>
+            <td>Feb 20, 2025</td><td>Unlikely Related</td><td>Resolved</td>
+            <td><span class="badge badge-approved">Closed</span></td>
+            <td><button class="btn btn-outline btn-sm" onclick="event.stopPropagation();location.href='participant-details.html'"><i class="fa-solid fa-eye"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- REPORT AE MODAL -->
+<div class="modal-backdrop" id="reportAEModal">
+  <div class="modal">
+    <h3><i class="fa-solid fa-triangle-exclamation" style="color:#e74c3c;"></i> &nbsp;Report Adverse Event</h3>
+
+    <div class="form-row">
+      <div class="form-group"><label>Participant (Subject ID)</label>
+        <select class="form-control"><option>SUB-001</option><option>SUB-002</option><option>SUB-003</option><option>SUB-042</option></select>
+      </div>
+      <div class="form-group"><label>Study</label>
+        <select class="form-control"><option>CT-2025-001</option><option>CT-2025-002</option><option>CT-2025-003</option></select>
+      </div>
+    </div>
+
+    <div class="form-group"><label>AE Description</label><textarea class="form-control" rows="3" placeholder="Describe the adverse event in detail..."></textarea></div>
+
+    <div class="form-row">
+      <div class="form-group"><label>Severity</label>
+        <select class="form-control" id="severitySelect" onchange="checkSAE()">
+          <option>Mild</option>
+          <option>Moderate</option>
+          <option>Severe</option>
+          <option>Life Threatening</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Onset Date</label><input type="date" class="form-control"></div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group"><label>Relationship to Drug</label>
+        <select class="form-control">
+          <option>Not Related</option>
+          <option>Unlikely Related</option>
+          <option>Possibly Related</option>
+          <option>Probably Related</option>
+          <option>Definitely Related</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Outcome</label>
+        <select class="form-control">
+          <option>Resolved</option>
+          <option>Ongoing</option>
+          <option>Hospitalized</option>
+          <option>Fatal</option>
+          <option>Unknown</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="saeAlert" style="display:none;" class="alert alert-danger">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <strong>SAE Alert:</strong> This event qualifies as a Serious Adverse Event. Regulatory reporting required within 24 hours.
+    </div>
+
+    <div class="form-group"><label>Additional Comments</label><textarea class="form-control" rows="2" placeholder="Any additional notes..."></textarea></div>
+
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('reportAEModal')">Cancel</button>
+      <button class="btn btn-danger" onclick="closeModal('reportAEModal')"><i class="fa-solid fa-paper-plane"></i> Submit AE Report</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+function checkSAE() {
+  const val = document.getElementById('severitySelect').value;
+  const alert = document.getElementById('saeAlert');
+  alert.style.display = (val === 'Severe' || val === 'Life Threatening') ? 'flex' : 'none';
+}
+</script>
+</body>
+</html>

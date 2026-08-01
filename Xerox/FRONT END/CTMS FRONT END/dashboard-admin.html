@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTMS – Admin Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo"><h2><i class="fa-solid fa-flask-vial"></i> CTMS</h2><span>Admin Panel</span></div>
+  <nav>
+    <a href="dashboard-admin.html" class="active"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+    <a href="studies.html"><i class="fa-solid fa-clipboard-list"></i><span>Studies</span></a>
+    <a href="participants.html"><i class="fa-solid fa-users"></i><span>Participants</span></a>
+    <a href="ecrf.html"><i class="fa-solid fa-file-medical"></i><span>eCRF</span></a>
+    <a href="adverse-events.html"><i class="fa-solid fa-triangle-exclamation"></i><span>Adverse Events</span></a>
+    <a href="documents.html"><i class="fa-solid fa-folder-open"></i><span>Regulatory Docs</span></a>
+    <a href="reports.html"><i class="fa-solid fa-chart-bar"></i><span>Reports</span></a>
+    <a href="#"><i class="fa-solid fa-users-gear"></i><span>User Management</span></a>
+    <a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <i class="fa-solid fa-circle" style="color:#27ae60;font-size:0.6rem;"></i> Admin User<br>
+    <span style="font-size:0.72rem;opacity:0.6;">System Administrator</span><br>
+    <a href="login.html" style="color:rgba(255,255,255,0.6);font-size:0.75rem;"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <h1><i class="fa-solid fa-user-shield" style="color:#2980b9;"></i> &nbsp;Admin Dashboard</h1>
+    <div class="topbar-right">
+      <span style="font-size:0.82rem;color:#7f8c8d;">Mon, 14 Jul 2025</span>
+      <div style="position:relative;cursor:pointer;">
+        <i class="fa-solid fa-bell" style="font-size:1.1rem;color:#7f8c8d;"></i>
+        <div class="badge-alert" style="position:absolute;top:-6px;right:-6px;">5</div>
+      </div>
+      <div class="avatar" style="background:#8e44ad;">AD</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="alert alert-danger">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <span><strong>2 SAEs</strong> require immediate review — <a href="adverse-events.html" style="color:#922b21;font-weight:600;">View Now</a> &nbsp;|&nbsp; <strong>3 users</strong> pending approval — <a href="#" style="color:#922b21;font-weight:600;">Review</a></span>
+    </div>
+
+    <!-- SYSTEM STATS -->
+    <div class="stat-grid">
+      <a href="studies.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon blue"><i class="fa-solid fa-flask"></i></div>
+        <div><div class="stat-val">18</div><div class="stat-label">Total Studies</div></div>
+      </a>
+      <a href="participants.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon green"><i class="fa-solid fa-users"></i></div>
+        <div><div class="stat-val">542</div><div class="stat-label">Total Participants</div></div>
+      </a>
+      <a href="#" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon purple"><i class="fa-solid fa-user-tie"></i></div>
+        <div><div class="stat-val">47</div><div class="stat-label">System Users</div></div>
+      </a>
+      <a href="adverse-events.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <div><div class="stat-val">7</div><div class="stat-label">Safety Alerts</div></div>
+      </a>
+      <a href="documents.html" class="stat-card" style="text-decoration:none;color:inherit;">
+        <div class="stat-icon orange"><i class="fa-solid fa-file-circle-exclamation"></i></div>
+        <div><div class="stat-val">8</div><div class="stat-label">Expiring Docs</div></div>
+      </a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
+
+      <!-- USER MANAGEMENT -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-users-gear" style="color:#8e44ad;"></i> &nbsp;User Management</h3>
+          <button class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Add User</button>
+        </div>
+        <table>
+          <thead><tr><th>Name</th><th>Role</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Dr. Sarah Johnson</td><td><span class="badge badge-screening">PI</span></td><td><span class="badge badge-active">Active</span></td><td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-pen"></i></button></td></tr>
+            <tr><td>Ms. Priya Sharma</td><td><span class="badge badge-mild">Coordinator</span></td><td><span class="badge badge-active">Active</span></td><td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-pen"></i></button></td></tr>
+            <tr><td>PharmaCorp Ltd</td><td><span class="badge badge-completed">Sponsor</span></td><td><span class="badge badge-active">Active</span></td><td><button class="btn btn-outline btn-sm"><i class="fa-solid fa-pen"></i></button></td></tr>
+            <tr><td>Mr. Ravi Kumar</td><td><span class="badge badge-setup">Data Mgr</span></td><td><span class="badge badge-pending">Pending</span></td><td><button class="btn btn-success btn-sm">Approve</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- AUDIT LOG -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-clock-rotate-left" style="color:#2980b9;"></i> &nbsp;Audit Log</h3>
+          <a href="#" style="font-size:0.8rem;color:#2980b9;">View All</a>
+        </div>
+        <ul class="timeline">
+          <li>
+            <div class="tl-dot green"><i class="fa-solid fa-user-plus"></i></div>
+            <div class="tl-text"><p>New user Dr. Anil Kumar created</p><span>Admin · 1 hour ago</span></div>
+          </li>
+          <li>
+            <div class="tl-dot red"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <div class="tl-text"><p>SAE reported – SUB-019</p><span>Dr. Sarah Johnson · 4 hrs ago</span></div>
+          </li>
+          <li>
+            <div class="tl-dot blue"><i class="fa-solid fa-file-pen"></i></div>
+            <div class="tl-text"><p>Protocol v2.1 approved</p><span>Admin · Yesterday</span></div>
+          </li>
+          <li>
+            <div class="tl-dot orange"><i class="fa-solid fa-gear"></i></div>
+            <div class="tl-text"><p>System settings updated</p><span>Admin · 2 days ago</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- SITE OVERVIEW -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-hospital" style="color:#27ae60;"></i> &nbsp;Site Overview</h3>
+          <a href="studies.html" style="font-size:0.8rem;color:#2980b9;">Manage</a>
+        </div>
+        <table>
+          <thead><tr><th>Site</th><th>City</th><th>Enrolled</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr style="cursor:pointer;" onclick="location.href='study-details.html'"><td>City General Hospital</td><td>Mumbai</td><td>120</td><td><span class="badge badge-active">Active</span></td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='study-details.html'"><td>Apollo Research Center</td><td>Delhi</td><td>98</td><td><span class="badge badge-active">Active</span></td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='study-details.html'"><td>Medanta Clinical Inst.</td><td>Bangalore</td><td>75</td><td><span class="badge badge-active">Active</span></td></tr>
+            <tr style="cursor:pointer;" onclick="location.href='study-details.html'"><td>AIIMS Research Wing</td><td>Chennai</td><td>42</td><td><span class="badge badge-setup">Setup</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- PENDING APPROVALS -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-clock" style="color:#f39c12;"></i> &nbsp;Pending Approvals</h3>
+          <span class="badge badge-pending">6 Pending</span>
+        </div>
+        <table>
+          <thead><tr><th>Item</th><th>Type</th><th>Requested By</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Protocol v2.2</td><td>Document</td><td>Dr. Sarah J.</td><td><button class="btn btn-success btn-sm">Approve</button></td></tr>
+            <tr><td>New Site – Pune</td><td>Site</td><td>Ms. Priya S.</td><td><button class="btn btn-success btn-sm">Approve</button></td></tr>
+            <tr><td>ICF v1.3</td><td>Document</td><td>Dr. Raj P.</td><td><button class="btn btn-success btn-sm">Approve</button></td></tr>
+            <tr><td>Budget Amendment</td><td>Finance</td><td>PharmaCorp</td><td><button class="btn btn-warning btn-sm">Review</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
